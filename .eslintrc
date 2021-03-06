@@ -4,5 +4,21 @@
   "env": {
     "browser": true,
     "node": true
+  },
+  "rules": {
+    "import/no-unresolved": "off",
+    "indent": "off",
+    "max-len": "off",
+    "react/jsx-indent": "off",
+    "linebreak-style": "off",
+    "@typescript-eslint/camelcase": "off",
+    "import/prefer-default-export": "off",
+    "no-use-before-define": "off",
+    "react/prop-types": "off",
+    "no-param-reassign": "off",
+    "consistent-return": "off",
+    "no-plusplus": "off",
+    "react/react-in-jsx-scope": "off",
+    "object-curly-spacing": "off",
   }
 }

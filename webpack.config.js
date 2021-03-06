@@ -9,10 +9,17 @@ module.exports = {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    alias: {
+      Actions: path.resolve(__dirname, 'src/store/actions/'),
+      Helpers: path.resolve(__dirname, 'src/store/helpers/')
+    },
+  },
   module: {
     rules: [
       {
-        test: /\.jsx$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader', 'eslint-loader'],
       },
