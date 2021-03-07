@@ -15,7 +15,7 @@ const MainPage = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    countries: state.countryCards.countries
+    countries: state.countries.countries
 })
 
 export default connect(mapStateToProps, null,)(MainPage)
