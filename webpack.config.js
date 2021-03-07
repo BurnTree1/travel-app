@@ -10,7 +10,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.tsx', '.ts'],
     alias: {
       Actions: path.resolve(__dirname, 'src/store/actions/'),
       Helpers: path.resolve(__dirname, 'src/store/helpers/')

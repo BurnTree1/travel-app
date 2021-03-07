@@ -19,6 +19,6 @@
     "consistent-return": "off",
     "no-plusplus": "off",
     "react/react-in-jsx-scope": "off",
-    "object-curly-spacing": "off",
+    "object-curly-spacing": "off"
   }
 }
