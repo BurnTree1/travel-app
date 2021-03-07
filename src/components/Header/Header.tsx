@@ -1,4 +1,4 @@
-import React from "react";
+import React, {FC} from "react";
 import logo from 'Assets/image/logo.svg'
 import avatar from 'Assets/image/avatar.svg'
 import styles from './Header.module.css'
@@ -7,7 +7,7 @@ import {Search} from "./Search/Search";
 import {LanguageSelect} from "./LanguageSelect/LanguageSelect";
 
 
-export const Header = () => {
+export const Header: FC = () => {
     return (
         <div>
             <div className={styles.header}>

@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, {FC, useState} from "react";
 import TextField from "@material-ui/core/TextField";
 
-export const Search = () => {
-    const [searchText, setSearchText] = useState('')
+export const Search: FC = () => {
+    const [searchText, setSearchText] = useState<string>('')
     const onSearchChange = (event) => {
         setSearchText(event.target.value);
     }

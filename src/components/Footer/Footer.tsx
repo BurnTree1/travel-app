@@ -1,9 +1,9 @@
-import React from "react";
+import React, {FC} from "react";
 import school from 'Assets/image/school.svg'
 import git from 'Assets/image/git.svg'
 import styles from './Footer.module.css'
 
-export const Footer = () => {
+export const Footer: FC = () => {
     return (
         <div className={styles.footer}>
             <a href="https://rs.school/js/" className="school">

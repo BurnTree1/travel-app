@@ -1,12 +1,12 @@
-import React from "react";
+import React, {FC} from "react";
 import styles from "../Header.module.css";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import '../Header.css'
 
-export const LanguageSelect = () => {
-    const [lang, setLang] = React.useState('en');
+export const LanguageSelect: FC = () => {
+    const [lang, setLang] = React.useState<string>('en');
     const handleChange = (event) => {
         setLang(event.target.value)
     }

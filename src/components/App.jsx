@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css'
-import MainPage from "./MainPage/MainPage";
+import MainPage from "./MainPage/MainPage.tsx";
 
 const App = () => (
     <div className='app'>

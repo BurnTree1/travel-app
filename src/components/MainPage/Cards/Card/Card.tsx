@@ -1,9 +1,14 @@
-import React from "react";
+import React, {FC} from "react";
 import rating from '../../../../assets/image/rating.svg'
 import styles from './Card.module.css'
 import italy from 'Assets/image/italy.png'
 
-export const Card = (props) => {
+type propsType = {
+    name: string
+    rating: null
+    capital: string
+}
+export const Card: FC<propsType> = (props) => {
     return (
         <div className={styles.card}>
             <img src={italy} alt="country" className={styles.card__img}/>
