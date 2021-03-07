@@ -1,6 +1,6 @@
 import React from "react";
-//import logo from '../../assets/image/logo.svg'
-//import avatar from '../../assets/image/avatar.svg'
+import logo from 'Assets/image/logo.svg'
+import avatar from 'Assets/image/avatar.svg'
 import styles from './Header.module.css'
 import './Header.css'
 import {Search} from "./Search/Search";
@@ -12,7 +12,7 @@ export const Header = () => {
         <div>
             <div className={styles.header}>
                 <a href="/" className="header__link">
-                    <img src='' alt="" className="logo"/>
+                    <img src={logo} alt="logo" className="logo"/>
                 </a>
                 <div className={styles.header__right}>
                     <Search/>
@@ -20,8 +20,8 @@ export const Header = () => {
                         <span className={styles.language__text}>Language</span>
                         <LanguageSelect/>
                     </div>
-                    <div className="avatar">
-                        <img src="" alt="" className="avatar__img"/>
+                    <div className={styles.avatar}>
+                        <img src={avatar} alt="avatar" className={styles.avatar__img}/>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,15 @@
+.footer {
+    height: 64px;
+    background: #011321;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.year {
+    color: #F2F2F2;
+    font-size: 24px;
+    line-height: 28px;
+    padding-left: 70px;
+    padding-right: 70px;
+}

@@ -13,7 +13,8 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       Actions: path.resolve(__dirname, 'src/store/actions/'),
-      Helpers: path.resolve(__dirname, 'src/store/helpers/')
+      Helpers: path.resolve(__dirname, 'src/store/helpers/'),
+      Assets: path.resolve(__dirname, 'src/assets/')
     },
   },
   module: {
@@ -26,6 +27,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: 'file-loader'
       },
       {
         test: /\.tsx?$/,
