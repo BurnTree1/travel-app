@@ -57,3 +57,39 @@
     padding-top: 15px;
     color: #F2F2F2;
 }
+
+@media (max-width: 770px) {
+    .card {
+        width: 203px;
+        height: 293px;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .card__countryName {
+        font-size: 18px;
+    }
+
+    .card__rating {
+        font-size: 14px;
+    }
+
+    .card__capital {
+        font-size: 14px;
+        padding-top: 5px;
+    }
+
+    .rating__img {
+        margin-left: 10px;
+    }
+
+    .card__desc {
+        padding: 34px 8px 21px 12px;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .card:hover .card__desc {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 54.17%, rgba(0, 0, 0, 0) 100%);
+    }
+}

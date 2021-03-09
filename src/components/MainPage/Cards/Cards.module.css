@@ -1,9 +1,19 @@
 .cards {
-    padding-top: 69px;
-    padding-bottom: 121px;
-    padding-left: 98px;
+    padding: 69px 15px 121px 98px;
     display: flex;
     flex-wrap: wrap;
     column-gap: 24px;
     row-gap: 52px;
+}
+
+@media (max-width: 1385px) {
+    .cards {
+        justify-content: space-evenly;
+    }
+}
+
+@media (max-width: 770px) {
+    .cards {
+        padding-left: 15px;
+    }
 }

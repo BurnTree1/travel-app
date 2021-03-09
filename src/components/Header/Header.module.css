@@ -36,3 +36,21 @@
     border-radius: 50%;
     cursor: pointer;
 }
+
+@media (max-width: 990px) {
+    .language {
+        width: 77px;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    .logo {
+        width: 111px;
+    }
+
+    .avatar__img {
+        width: 40px;
+    }
+}

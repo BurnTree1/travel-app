@@ -6,16 +6,18 @@ import './Header.css'
 import {Search} from "./Search/Search";
 import {LanguageSelect} from "./LanguageSelect/LanguageSelect";
 
-
-export const Header: FC = () => {
+type propsType = {
+    findCountries: (text: string)=> void
+}
+export const Header: FC<propsType> = (props) => {
     return (
         <div>
             <div className={styles.header}>
                 <a href="/" className="header__link">
-                    <img src={logo} alt="logo" className="logo"/>
+                    <img src={logo} alt="logo" className={styles.logo}/>
                 </a>
                 <div className={styles.header__right}>
-                    <Search/>
+                    <Search findCountries={props.findCountries}/>
                     <div className={styles.language}>
                         <span className={styles.language__text}>Language</span>
                         <LanguageSelect/>

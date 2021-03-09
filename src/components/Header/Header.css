@@ -1,5 +1,5 @@
 .app .MuiInputBase-root {
-    color: #F2F2F2;;
+    color: #F2F2F2;
 }
 
 .app .MuiInput-underline:before {
@@ -16,4 +16,14 @@
 
 .app .MuiFormControl-root {
     width: 100%;
+}
+
+.app .MuiOutlinedInput-input {
+    width: 257px;
+}
+
+@media (max-width: 990px) {
+    .app .MuiOutlinedInput-input {
+        width: 200px;
+    }
 }
