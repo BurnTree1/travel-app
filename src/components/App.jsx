@@ -1,8 +1,10 @@
 import React from 'react';
+import './App.css'
+import MainPage from "./MainPage/MainPage.tsx";
 
 const App = () => (
-    <div>
-        <h1 align="center">Hello command</h1>
+    <div className='app'>
+        <MainPage/>
     </div>
 );
 

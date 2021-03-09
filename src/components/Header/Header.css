@@ -1,0 +1,29 @@
+.app .MuiInputBase-root {
+    color: #F2F2F2;
+}
+
+.app .MuiInput-underline:before {
+    border-bottom: 1px solid #F2F2F2;
+}
+
+.app .MuiSelect-icon {
+    color: #83888c;
+}
+
+.app .MuiOutlinedInput-notchedOutline {
+    border-color: #F2F2F2;
+}
+
+.app .MuiFormControl-root {
+    width: 100%;
+}
+
+.app .MuiOutlinedInput-input {
+    width: 257px;
+}
+
+@media (max-width: 990px) {
+    .app .MuiOutlinedInput-input {
+        width: 200px;
+    }
+}
