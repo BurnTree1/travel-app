@@ -12,11 +12,11 @@ type mapStateToPropsType = {
     foundCountries: Array<countriesType>
 }
 type mapDispatchToPropsType = {
-    filterCountries: (text: string)=> void
+    filterCountries: (text: string) => void
 }
 type propsType = {
     countries: Array<countriesType>
-    findCountries: ()=> void
+    findCountries: () => void
 }
 type props = propsType & mapStateToPropsType & mapDispatchToPropsType
 const MainPage: FC<props> = (props) => {

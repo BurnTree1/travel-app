@@ -13,19 +13,19 @@ type propsType = {
 export const Card: FC<propsType> = (props) => {
     return (
         <Link to={`countries/${props.iso}`}>
-        <div className={styles.card}>
-            <img src={italy} alt="country" className={styles.card__img}/>
-            <div className={styles.card__desc}>
-                <div className={styles.card__country}>
-                    <div className={styles.card__countryName}>{props.name}</div>
-                    <div className={styles.card__rating}>
-                        {props.rating}
-                        <img src={rating} alt="star" className={styles.rating__img}/>
+            <div className={styles.card}>
+                <img src={italy} alt="country" className={styles.card__img}/>
+                <div className={styles.card__desc}>
+                    <div className={styles.card__country}>
+                        <div className={styles.card__countryName}>{props.name}</div>
+                        <div className={styles.card__rating}>
+                            {props.rating}
+                            <img src={rating} alt="star" className={styles.rating__img}/>
+                        </div>
                     </div>
+                    <div className={styles.card__capital}>{props.capital}</div>
                 </div>
-                <div className={styles.card__capital}>{props.capital}</div>
             </div>
-        </div>
         </Link>
     )
 }

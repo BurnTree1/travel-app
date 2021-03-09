@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css'
-import MainPage from "./MainPage/MainPage.tsx";
 import {Route, Switch} from "react-router-dom";
 import {CountryPage} from "./MainPage/CountryPage/CountryPage";
+import MainPage from "./MainPage/MainPage";
 
 const App = () => (
     <div className='app'>

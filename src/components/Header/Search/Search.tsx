@@ -1,8 +1,10 @@
 import React, {FC, useState} from "react";
 import TextField from "@material-ui/core/TextField";
+import del from 'Assets/image/delete.svg'
+import styles from './Search.module.css'
 
 type propsType = {
-    findCountries: (text: string)=> void
+    findCountries: (text: string) => void
 }
 export const Search: FC<propsType> = (props) => {
     const [searchText, setSearchText] = useState<string>('')
@@ -10,9 +12,15 @@ export const Search: FC<propsType> = (props) => {
         setSearchText(event.target.value);
         props.findCountries(event.target.value)
     }
+    const onDeleteSearch = () => {
+        setSearchText('')
+        props.findCountries('')
+    }
     return (
-        <div>
-            <TextField id="search" value={searchText} onChange={onSearchChange} variant="outlined" placeholder='Поиск' />
+        <div className={styles.search}>
+            <TextField id="search" autoFocus={true} autoComplete='off' value={searchText} onChange={onSearchChange}
+                       variant="outlined" placeholder='Поиск'/>
+            <img onClick={onDeleteSearch} src={del} alt="delete" className={styles.search__delete}/>
         </div>
     )
 }
