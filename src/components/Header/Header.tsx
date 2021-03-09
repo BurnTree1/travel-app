@@ -8,6 +8,7 @@ import {LanguageSelect} from "./LanguageSelect/LanguageSelect";
 
 type propsType = {
     findCountries: (text: string)=> void
+    search: boolean
 }
 export const Header: FC<propsType> = (props) => {
     return (
@@ -17,7 +18,7 @@ export const Header: FC<propsType> = (props) => {
                     <img src={logo} alt="logo" className={styles.logo}/>
                 </a>
                 <div className={styles.header__right}>
-                    <Search findCountries={props.findCountries}/>
+                    {props.search && <Search findCountries={props.findCountries}/>}
                     <div className={styles.language}>
                         <span className={styles.language__text}>Language</span>
                         <LanguageSelect/>

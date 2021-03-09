@@ -25,7 +25,7 @@ const MainPage: FC<props> = (props) => {
     }
     return (
         <div>
-            <Header findCountries={findCountries}/>
+            <Header findCountries={findCountries} search={true}/>
             <Cards cardsArr={props.foundCountries[0] ? props.foundCountries : props.countries}/>
             <Footer/>
         </div>
