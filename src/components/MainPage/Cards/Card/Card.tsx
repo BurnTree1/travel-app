@@ -2,14 +2,17 @@ import React, {FC} from "react";
 import rating from '../../../../assets/image/rating.svg'
 import styles from './Card.module.css'
 import italy from 'Assets/image/italy.png'
+import {Link} from "react-router-dom";
 
 type propsType = {
     name: string
     rating: null
     capital: string
+    iso: string
 }
 export const Card: FC<propsType> = (props) => {
     return (
+        <Link to={`countries/${props.iso}`}>
         <div className={styles.card}>
             <img src={italy} alt="country" className={styles.card__img}/>
             <div className={styles.card__desc}>
@@ -23,5 +26,6 @@ export const Card: FC<propsType> = (props) => {
                 <div className={styles.card__capital}>{props.capital}</div>
             </div>
         </div>
+        </Link>
     )
 }
