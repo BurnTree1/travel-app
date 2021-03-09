@@ -3,4 +3,5 @@ export type countriesType = {
     name: string
     capital: string
     rating: number
+    iso: string
 }
