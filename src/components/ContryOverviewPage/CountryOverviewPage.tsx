@@ -9,7 +9,7 @@ import { Footer } from '../Footer/Footer';
 import Widgets from './Widgets/Widgets';
 
 export const CountryOverviewPage: FC = () => {
-  console.log('rendered countryOverview');
+  console.log('rendered countryOverview yepo');
   return (
     <div>
       <Header search={false} />
