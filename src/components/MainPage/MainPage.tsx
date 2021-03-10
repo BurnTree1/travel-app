@@ -12,11 +12,11 @@ type mapStateToPropsType = {
     foundCountries: Array<countriesType>
 }
 type mapDispatchToPropsType = {
-    filterCountries: (text: string)=> void
+    filterCountries: (text: string) => void
 }
 type propsType = {
     countries: Array<countriesType>
-    findCountries: ()=> void
+    findCountries: () => void
 }
 type props = propsType & mapStateToPropsType & mapDispatchToPropsType
 const MainPage: FC<props> = (props) => {
@@ -25,7 +25,7 @@ const MainPage: FC<props> = (props) => {
     }
     return (
         <div>
-            <Header findCountries={findCountries}/>
+            <Header findCountries={findCountries} search={true}/>
             <Cards cardsArr={props.foundCountries[0] ? props.foundCountries : props.countries}/>
             <Footer/>
         </div>
