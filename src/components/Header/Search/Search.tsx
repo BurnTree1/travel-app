@@ -1,6 +1,7 @@
 import React, {FC, useState} from "react";
 import TextField from "@material-ui/core/TextField";
 import del from 'Assets/image/delete.svg'
+import search from 'Assets/image/search.svg'
 import styles from './Search.module.css'
 
 type propsType = {
@@ -18,9 +19,10 @@ export const Search: FC<propsType> = (props) => {
     }
     return (
         <div className={styles.search}>
-            <TextField id="search" autoFocus={true} autoComplete='off' value={searchText} onChange={onSearchChange}
-                       variant="outlined" placeholder='Поиск'/>
+            <TextField className='search__input' id="search" autoFocus={true} autoComplete='off' value={searchText} onChange={onSearchChange}
+                       placeholder='Поиск'/>
             <img onClick={onDeleteSearch} src={del} alt="delete" className={styles.search__delete}/>
+            <img src={search} alt="search" className={styles.search__search}/>
         </div>
     )
 }

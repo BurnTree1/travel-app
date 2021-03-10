@@ -1,12 +1,22 @@
 .search {
     position: relative;
+    height: 60px;
+    padding-top: 22px;
+    width: 199px;
 }
 
 .search__delete {
-    width: 20px;
+    width: 10px;
     position: absolute;
     right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: 15px;
+    cursor: pointer;
+}
+
+.search__search {
+    width: 25px;
+    position: absolute;
+    left: 5px;
+    bottom: 9px;
     cursor: pointer;
 }

@@ -22,6 +22,11 @@
     width: 257px;
 }
 
+.app .search__input input {
+    padding-left: 50px;
+    padding-bottom: 12px;
+}
+
 @media (max-width: 990px) {
     .app .MuiOutlinedInput-input {
         width: 200px;
