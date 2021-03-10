@@ -32,3 +32,34 @@
         width: 200px;
     }
 }
+
+@media (max-width: 700px) {
+    .app .MuiInput-underline:before {
+        display: none;
+    }
+
+    .app .MuiInput-underline:after {
+        display: none;
+    }
+
+    .app .MuiSelect-icon {
+        display: none;
+    }
+
+    .app .search__input {
+        display: none;
+    }
+
+    .app .MuiOutlinedInput-notchedOutline {
+        border-color: #000;
+        border-radius: 20px;
+    }
+
+    .app .search__topInput input {
+        color: #000;
+        background-color: #fff;
+        width: 100%;
+        border-radius: 20px;
+        padding-left: 50px;
+    }
+}

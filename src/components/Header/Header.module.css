@@ -45,12 +45,38 @@
     }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 700px) {
+    .header {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 9;
+    }
+
     .logo {
-        width: 111px;
+        display: none;
     }
 
     .avatar__img {
         width: 40px;
+    }
+
+    .language__text {
+        display: none;
+    }
+
+    .language {
+        width: 55px;
+        margin: 0;
+    }
+
+    .header {
+        height: 70px;
+        padding: 15px 15px 15px 30px;
+    }
+
+    .header__right {
+        width: 100%;
+        justify-content: flex-end;
     }
 }
