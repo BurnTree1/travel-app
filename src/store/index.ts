@@ -7,5 +7,5 @@ const store = createStore(reducers, applyMiddleware(thunk));
 type RootReducerType = typeof reducers;
 export type AppRootReducer = ReturnType<RootReducerType>;
 
-window.store = store;
+(window as any).store = store;
 export default store;

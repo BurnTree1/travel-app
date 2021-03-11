@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { FC, useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import del from 'Assets/image/delete.svg';

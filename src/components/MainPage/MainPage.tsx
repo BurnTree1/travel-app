@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { connect } from 'react-redux';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
@@ -24,10 +24,12 @@ const MainPage: FC<props> = (props) => {
   const findCountries = (searchText: string): void => {
     props.filterCountries(searchText);
   };
+
+  const { foundCountries, countries } = props;
   return (
         <div>
             <Header findCountries={findCountries} search />
-            <Cards cardsArr={props.foundCountries[0] ? props.foundCountries : props.countries} />
+            <Cards cardsArr={foundCountries[0] ? foundCountries : countries} />
             <Footer />
         </div>
   );
@@ -38,4 +40,4 @@ const mapStateToProps = (state: AppRootReducer) => ({
   foundCountries: state.countries.foundCountries,
 });
 
-export default connect<mapStateToPropsType, mapDispatchToPropsType, AppRootReducer>(mapStateToProps, { filterCountries })(MainPage);
+export default connect(mapStateToProps, { filterCountries })(MainPage);
