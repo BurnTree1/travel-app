@@ -7,7 +7,7 @@ import { CountryOverviewPage } from './ContryOverviewPage/CountryOverviewPage';
 const App = () => (
     <div className="app">
         <Switch>
-            <Route path="/countries" render={() => <CountryOverviewPage />} />
+            <Route path="/countries/:id" render={() => <CountryOverviewPage />} />
             <Route exact path="/" render={() => <MainPage />} />
             <Route render={() => (<div>404 Not Found</div>)} />
         </Switch>
