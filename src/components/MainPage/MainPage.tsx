@@ -21,17 +21,19 @@ type propsType = {
 }
 type props = propsType & mapStateToPropsType & mapDispatchToPropsType
 const MainPage: FC<props> = (props) => {
+    const [showFoundCountries, setshowFoundCountries] = useState<boolean>(false)
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(setCountries())
     }, [])
     const findCountries = (searchText: string): void => {
         props.filterCountries(searchText)
+        searchText ? setshowFoundCountries(true) : setshowFoundCountries(false)
     }
     return (
         <div>
             <Header findCountries={findCountries} search={true}/>
-            <Cards cardsArr={props.foundCountries[0] ? props.foundCountries : props.countries}/>
+            <Cards cardsArr={showFoundCountries ? props.foundCountries : props.countries}/>
             <Footer/>
         </div>
     )

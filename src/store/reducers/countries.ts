@@ -23,6 +23,8 @@ const handlers = {
             let indexCapital = country.capital.toLowerCase().indexOf(searchText.toLowerCase())
             if (indexCountry >= 0 || indexCapital >= 0) {
                 return country
+            } else if (indexCountry < 0 && indexCapital < 0) {
+                return false
             }
         })]
     })
