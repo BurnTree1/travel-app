@@ -24,7 +24,7 @@ export const Header: FC<propsType> = (props) => {
           <div className={styles.language}>
             <span className={styles.language__text}>
               <FormattedMessage id="language.lang" />
-             </span>
+            </span>
             <LanguageSelect />
           </div>
           <div className={styles.avatar}>
