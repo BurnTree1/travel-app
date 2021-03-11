@@ -1,11 +1,12 @@
-import React, {FC, useState} from "react";
+import React, {FC, useEffect, useState} from "react";
 import {Header} from "../Header/Header";
 import {Footer} from "../Footer/Footer";
 import {Cards} from "./Cards/Cards";
-import {connect} from "react-redux";
+import {connect, useDispatch} from "react-redux";
 import {AppRootReducer} from "../../store";
 import {countriesType} from "../../types/types";
 import {filterCountries} from "../../store/actions";
+import {setCountries} from "../../store/reducers/countries";
 
 type mapStateToPropsType = {
     countries: Array<countriesType>
@@ -20,6 +21,10 @@ type propsType = {
 }
 type props = propsType & mapStateToPropsType & mapDispatchToPropsType
 const MainPage: FC<props> = (props) => {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(setCountries())
+    }, [])
     const findCountries = (searchText: string): void => {
         props.filterCountries(searchText)
     }

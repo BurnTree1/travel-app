@@ -10,7 +10,7 @@ type propsType = {
 }
 export const Search: FC<propsType> = (props) => {
     const [searchText, setSearchText] = useState<string>('')
-    const [showSearch, setshowSearch] = useState<boolean>(false)
+    const [showSearch, setShowSearch] = useState<boolean>(false)
     const onSearchChange = (event) => {
         setSearchText(event.target.value);
         props.findCountries(event.target.value)
@@ -20,7 +20,7 @@ export const Search: FC<propsType> = (props) => {
         props.findCountries('')
     }
     const onSearchShow = () => {
-        setshowSearch(!showSearch)
+        setShowSearch(!showSearch)
     }
     return (
         <div className={styles.search__wrap}>
