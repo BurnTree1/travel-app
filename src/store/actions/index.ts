@@ -1,1 +1,1 @@
-export * from './countries.ts';
+export * from './countries';

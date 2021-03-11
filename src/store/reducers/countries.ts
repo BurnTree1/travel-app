@@ -46,6 +46,7 @@ const handlers = {
       if (indexCountry >= 0 || indexCapital >= 0) {
         return country;
       }
+      return false;
     })],
   }),
 };

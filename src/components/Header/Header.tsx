@@ -10,22 +10,25 @@ type propsType = {
   findCountries?: (text: string) => void
   search: boolean
 };
-export const Header: FC<propsType> = (props) => (
-        <div>
-            <div className={styles.header}>
-                <a href="/" className="header__link">
-                    <img src={logo} alt="logo" className={styles.logo} />
-                </a>
-                <div className={styles.header__right}>
-                    {props.search && <Search findCountries={props.findCountries!} />}
-                    <div className={styles.language}>
-                        <span className={styles.language__text}>Language</span>
-                        <LanguageSelect />
-                    </div>
-                    <div className={styles.avatar}>
-                        <img src={avatar} alt="avatar" className={styles.avatar__img} />
-                    </div>
-                </div>
-            </div>
+export const Header: FC<propsType> = (props) => {
+  const { findCountries, search } = props;
+  return (
+    <div>
+      <div className={styles.header}>
+        <a href="/" className="header__link">
+          <img src={logo} alt="logo" className={styles.logo} />
+        </a>
+        <div className={styles.header__right}>
+          {search && <Search findCountries={findCountries!} />}
+          <div className={styles.language}>
+            <span className={styles.language__text}>Language</span>
+            <LanguageSelect />
+          </div>
+          <div className={styles.avatar}>
+            <img src={avatar} alt="avatar" className={styles.avatar__img} />
+          </div>
         </div>
-);
+      </div>
+    </div>
+  );
+};
