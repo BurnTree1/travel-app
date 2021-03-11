@@ -4,8 +4,8 @@ import reducers from './reducers';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
-type RootReducerType = typeof reducers
-export type AppRootReducer = ReturnType<RootReducerType>
+type RootReducerType = typeof reducers;
+export type AppRootReducer = ReturnType<RootReducerType>;
 
 window.store = store;
 export default store;
