@@ -1,4 +1,5 @@
-import { countriesType } from '../../types/types';
+import { countriesType } from 'Types';
+import { countriesAPI } from '../../api/api';
 
 export const FETCH_COUNTRIES = 'COUNTRIES/FETCH';
 export const FILTER_COUNTRIES = 'COUNTRIES/FILTER';
@@ -20,3 +21,8 @@ export const filterCountries = (searchText: string): filterCountriesType => ({
   type: FILTER_COUNTRIES,
   payload: { searchText },
 });
+
+export const setCountries = () => async (dispatch) => {
+  const response = await countriesAPI.getCountries();
+  dispatch(fetchCountries(response));
+};
