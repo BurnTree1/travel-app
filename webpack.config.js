@@ -44,7 +44,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
-    new ESLintPlugin()
+    new ESLintPlugin(),
   ],
   devServer: {
     overlay: true,
