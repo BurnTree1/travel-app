@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Widgets = () => {
+const Widgets = ({ country }) => {
   console.log('widgets rendered');
 
   return (
         <div>
-            <p>widgets</p>
+            <p>{country.name}</p>
         </div>
   );
 };

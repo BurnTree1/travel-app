@@ -1,10 +1,11 @@
 import _ from 'lodash';
-import { FETCH_COUNTRIES, FILTER_COUNTRIES } from 'Actions';
+import { FETCH_COUNTRIES, FILTER_COUNTRIES, FETCH_COUNTRY } from 'Actions';
 import { countriesType } from 'Types';
 
 const initialState = {
   countries: [] as Array<countriesType>,
   foundCountries: [] as Array<countriesType>,
+  country: {} as countriesType,
 };
 
 type InitialState = typeof initialState;
@@ -21,11 +22,16 @@ const handlers = {
       const indexCapital = country.capital.toLowerCase().indexOf(searchText.toLowerCase());
       if (indexCountry >= 0 || indexCapital >= 0) {
         return country;
-      } if (indexCountry < 0 && indexCapital < 0) {
+      }
+      if (indexCountry < 0 && indexCapital < 0) {
         return false;
       }
       return false;
     })],
+  }),
+  [FETCH_COUNTRY]: (state, { country }) => ({
+    ...state,
+    country,
   }),
 };
 
