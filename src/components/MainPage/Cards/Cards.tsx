@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
+import { countriesType } from 'Types';
 import { Card } from './Card/Card';
 import styles from './Cards.module.css';
-import { countriesType } from '../../../types/types';
 
 type propsType = {
   cardsArr: Array<countriesType>

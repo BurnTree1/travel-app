@@ -1,12 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
+import { countriesType } from 'Types';
+import { filterCountries, setCountries } from 'Actions';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
 import { Cards } from './Cards/Cards';
-import { AppRootReducer } from '../../store';
-import { countriesType } from '../../types/types';
-import { filterCountries } from '../../store/actions';
-import { setCountries } from '../../store/reducers/countries';
 
 type mapStateToPropsType = {
   countries: Array<countriesType>
@@ -48,4 +46,4 @@ const mapStateToProps = (state) => ({
   lang: state.lang.lang,
 });
 
-export default connect<mapStateToPropsType, AppRootReducer>(mapStateToProps)(MainPage);
+export default connect<mapStateToPropsType>(mapStateToProps)(MainPage);

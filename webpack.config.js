@@ -15,6 +15,7 @@ module.exports = {
       Actions: path.resolve(__dirname, 'src/store/actions/'),
       Helpers: path.resolve(__dirname, 'src/store/helpers/'),
       Assets: path.resolve(__dirname, 'src/assets/'),
+      Types: path.resolve(__dirname, 'src/types/'),
     },
   },
   module: {
@@ -34,7 +35,7 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: 'awesome-typescript-loader',
         exclude: /node_modules/,
       },
     ],
@@ -43,7 +44,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
-    new ESLintPlugin(),
+    new ESLintPlugin()
   ],
   devServer: {
     overlay: true,

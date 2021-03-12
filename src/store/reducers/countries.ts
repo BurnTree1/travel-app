@@ -1,12 +1,6 @@
 import _ from 'lodash';
-import { FETCH_COUNTRIES, FILTER_COUNTRIES } from 'Actions';
-import { countriesType } from '../../types/types';
-import { countriesAPI } from '../../api/api';
-import {
-  FETCH_COUNTRY,
-  fetchCountries,
-  fetchCountry,
-} from '../actions/countries';
+import { FETCH_COUNTRIES, FILTER_COUNTRIES, FETCH_COUNTRY } from 'Actions';
+import { countriesType } from 'Types';
 
 const initialState = {
   countries: [] as Array<countriesType>,
@@ -39,16 +33,6 @@ const handlers = {
     ...state,
     country,
   }),
-};
-
-export const setCountries = (lang: string) => async (dispatch) => {
-  const response = await countriesAPI.getCountries(lang);
-  dispatch(fetchCountries(response));
-};
-
-export const setCountry = (iso: string, lang: string) => async (dispatch) => {
-  const response = await countriesAPI.getCountry(iso, lang);
-  dispatch(fetchCountry(response));
 };
 
 export default (state = initialState, { type, payload }): InitialState => _.get(handlers, type, () => state)(state, payload);

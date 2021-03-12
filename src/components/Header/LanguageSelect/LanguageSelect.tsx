@@ -4,12 +4,11 @@ import { connect } from 'react-redux';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
+import { changeLanguage } from 'Actions';
 import styles from '../Header.module.css';
 import '../Header.css';
-import { changeLanguage } from '../../../store/actions';
 
 const mapStateToProps = (state) => ({
-  // ...state
   language: state.lang,
 });
 
