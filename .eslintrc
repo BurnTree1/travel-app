@@ -1,6 +1,14 @@
 {
-  "parser": "babel-eslint",
-  "extends": ["airbnb"],
+  "parser": "@typescript-eslint/parser",
+  "extends": ["airbnb-typescript"],
+  "parserOptions": {
+       "project": "./tsconfig.json",
+       "ecmaFeatures": {
+         "jsx": true
+       },
+       "ecmaVersion": 2020,
+       "sourceType": "module"
+   },
   "env": {
     "browser": true,
     "node": true
@@ -19,6 +27,8 @@
     "consistent-return": "off",
     "no-plusplus": "off",
     "react/react-in-jsx-scope": "off",
-    "object-curly-spacing": "off"
+    "object-curly-spacing": "off",
+    "import/extensions": "off",
+    "@typescript-eslint/naming-convention": "off"
   }
 }

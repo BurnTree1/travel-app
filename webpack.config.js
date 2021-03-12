@@ -14,7 +14,7 @@ module.exports = {
     alias: {
       Actions: path.resolve(__dirname, 'src/store/actions/'),
       Helpers: path.resolve(__dirname, 'src/store/helpers/'),
-      Assets: path.resolve(__dirname, 'src/assets/')
+      Assets: path.resolve(__dirname, 'src/assets/'),
     },
   },
   module: {
@@ -25,12 +25,12 @@ module.exports = {
         use: ['babel-loader', 'eslint-loader'],
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.(css|scss)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
-        use: 'file-loader'
+        use: 'file-loader',
       },
       {
         test: /\.tsx?$/,
