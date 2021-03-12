@@ -8,7 +8,15 @@ type propsType = {
 };
 export const Cards: FC<propsType> = (props) => {
   const { cardsArr } = props;
-  const cards = cardsArr.map((card) => <Card key={card.id} name={card.name} capital={card.capital} rating={card.rating} iso={card.iso} />);
+  const cards = cardsArr.map((card) => (
+<Card
+  key={card.id}
+  name={card.name}
+  capital={card.capital}
+  iso={card.ISO}
+  imageUrl={card.imageUrl}
+/>
+  ));
   return (
         <div className={styles.cards}>
             {cards}
