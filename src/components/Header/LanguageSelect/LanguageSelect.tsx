@@ -1,13 +1,30 @@
 import React, { FC } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { connect } from 'react-redux';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import styles from '../Header.module.css';
 import '../Header.css';
+import { changeLanguage } from '../../../store/actions';
 
-export const LanguageSelect: FC = () => {
-  const [lang, setLang] = React.useState<string>('en');
-  const handleChange = (event) => {
+const mapStateToProps = (state) => ({
+  // ...state
+  language: state.lang,
+});
+
+const mapDispatchToProps = { changeLanguage };
+
+interface IProps {
+  language: { lang: string };
+  changeLanguage(val: string): void;
+}
+
+const LanguageSelect: FC<IProps> = (props: IProps) => {
+  const { language } = props;
+  const [lang, setLang] = React.useState<string>(language.lang);
+  const handleChange = (event: React.ChangeEvent<any>) => {
+    props.changeLanguage(event.target.value);
     setLang(event.target.value);
   };
   return (
@@ -18,11 +35,19 @@ export const LanguageSelect: FC = () => {
                   value={lang}
                   onChange={handleChange}
                 >
-                    <MenuItem value="en">Eng</MenuItem>
-                    <MenuItem value="ru">Ru</MenuItem>
-                    <MenuItem value="de">De</MenuItem>
+                    <MenuItem value="en">
+                      <FormattedMessage id="language.en" />
+                    </MenuItem>
+                    <MenuItem value="ru">
+                      <FormattedMessage id="language.ru" />
+                    </MenuItem>
+                    <MenuItem value="de">
+                      <FormattedMessage id="language.de" />
+                    </MenuItem>
                 </Select>
             </FormControl>
         </div>
   );
 };
+
+export default connect(mapStateToProps, mapDispatchToProps)(LanguageSelect);
