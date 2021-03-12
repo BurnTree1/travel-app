@@ -32,8 +32,8 @@ export const fetchCountry = (country: countriesType): fetchCountryType => ({
   payload: { country },
 });
 
-export const setCountries = () => async (dispatch) => {
-  const response = await countriesAPI.getCountries();
+export const setCountries = (lang: string) => async (dispatch) => {
+  const response = await countriesAPI.getCountries(lang);
   dispatch(fetchCountries(response));
 };
 
