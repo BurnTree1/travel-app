@@ -11,6 +11,7 @@ import { setCountries } from '../../store/reducers/countries';
 type mapStateToPropsType = {
   countries: Array<countriesType>
   foundCountries: Array<countriesType>
+  lang: string
 };
 type propsType = {
   countries: Array<countriesType>
@@ -18,12 +19,12 @@ type propsType = {
 };
 type props = propsType & mapStateToPropsType;
 const MainPage: FC<props> = (props) => {
-  const { foundCountries, countries } = props;
+  const { foundCountries, countries, lang } = props;
   const [showFoundCountries, setshowFoundCountries] = useState<boolean>(false);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(setCountries());
-  }, []);
+    dispatch(setCountries(lang));
+  }, [lang]);
   const findCountries = (searchText: string): void => {
     dispatch(filterCountries(searchText));
     if (searchText) {
@@ -44,6 +45,7 @@ const MainPage: FC<props> = (props) => {
 const mapStateToProps = (state) => ({
   countries: state.countries.countries,
   foundCountries: state.countries.foundCountries,
+  lang: state.lang.lang,
 });
 
 export default connect<mapStateToPropsType, AppRootReducer>(mapStateToProps)(MainPage);

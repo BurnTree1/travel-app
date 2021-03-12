@@ -1,6 +1,7 @@
 import { countriesType } from '../../types/types';
 
 export const FETCH_COUNTRIES = 'COUNTRIES/FETCH';
+export const FETCH_COUNTRY = 'COUNTRY/FETCH';
 export const FILTER_COUNTRIES = 'COUNTRIES/FILTER';
 
 type fetchCountriesType = {
@@ -19,4 +20,13 @@ type filterCountriesType = {
 export const filterCountries = (searchText: string): filterCountriesType => ({
   type: FILTER_COUNTRIES,
   payload: { searchText },
+});
+
+type fetchCountryType = {
+  type: typeof FETCH_COUNTRY
+  payload: { country: countriesType }
+};
+export const fetchCountry = (country: countriesType): fetchCountryType => ({
+  type: FETCH_COUNTRY,
+  payload: { country },
 });
