@@ -1,43 +1,49 @@
-import React, { FC } from 'react';
-import { connect } from 'react-redux';
+import React, { FC, useEffect, useState } from 'react';
+import { connect, useDispatch } from 'react-redux';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
 import { Cards } from './Cards/Cards';
 import { AppRootReducer } from '../../store';
 import { countriesType } from '../../types/types';
 import { filterCountries } from '../../store/actions';
+import { setCountries } from '../../store/reducers/countries';
 
 type mapStateToPropsType = {
   countries: Array<countriesType>
   foundCountries: Array<countriesType>
 };
-type mapDispatchToPropsType = {
-  filterCountries: (text: string)=> void
-};
 type propsType = {
   countries: Array<countriesType>
-  findCountries: ()=> void
+  findCountries: () => void
 };
-type props = propsType & mapStateToPropsType & mapDispatchToPropsType;
-
+type props = propsType & mapStateToPropsType;
 const MainPage: FC<props> = (props) => {
-  const findCountries = (searchText: string): void => {
-    props.filterCountries(searchText);
-  };
-
   const { foundCountries, countries } = props;
+  const [showFoundCountries, setshowFoundCountries] = useState<boolean>(false);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setCountries());
+  }, []);
+  const findCountries = (searchText: string): void => {
+    dispatch(filterCountries(searchText));
+    if (searchText) {
+      setshowFoundCountries(true);
+    } else {
+      setshowFoundCountries(false);
+    }
+  };
   return (
         <div>
             <Header findCountries={findCountries} search />
-            <Cards cardsArr={foundCountries[0] ? foundCountries : countries} />
+            <Cards cardsArr={showFoundCountries ? foundCountries : countries} />
             <Footer />
         </div>
   );
 };
 
-const mapStateToProps = (state: AppRootReducer) => ({
+const mapStateToProps = (state) => ({
   countries: state.countries.countries,
   foundCountries: state.countries.foundCountries,
 });
 
-export default connect(mapStateToProps, { filterCountries })(MainPage);
+export default connect<mapStateToPropsType, AppRootReducer>(mapStateToProps)(MainPage);
