@@ -38,11 +38,11 @@ const CountryOverviewPage: FC<mapStateToPropsType> = ({ country, lang, loading }
             : (
                 <>
                   <HeroSection />
-                  <Widgets country={country} />
                   <DescriptionSection />
                   <GallerySection />
                   <MediaSection />
                   <MapSection />
+                  <Widgets country={country} />
                 </>
             )}
           <Footer />
