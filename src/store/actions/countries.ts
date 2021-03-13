@@ -1,5 +1,5 @@
 import { countriesType } from 'Types';
-import { countriesAPI } from '../../api/api';
+import { countriesAPI } from '../../api/countriesAPI';
 
 export const FETCH_COUNTRIES = 'COUNTRIES/FETCH';
 export const FETCH_COUNTRY = 'COUNTRY/FETCH';
