@@ -21,8 +21,8 @@ export const fetchCurrency = (rates, money): fetchCurrencyType => ({
   payload: { rates, money },
 });
 
-export const setWeather = (city: string) => async (dispatch) => {
-  const response = await widgetsAPI.getWeather(city);
+export const setWeather = (city: string, lang: string) => async (dispatch) => {
+  const response = await widgetsAPI.getWeather(city, lang);
   dispatch(fetchWeather(response));
 };
 

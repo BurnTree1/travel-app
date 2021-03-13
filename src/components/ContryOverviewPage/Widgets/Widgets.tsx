@@ -1,13 +1,13 @@
 import React from 'react';
 import { Info } from './Info/Info';
-import { Date } from './Date/Date';
+import { Dates } from './Dates/Dates';
 
 const Widgets = ({ country }) => (
-        <div>
-            {country.name}
-            <Date />
-            <Info />
-        </div>
+    <div>
+        {country.name}
+        <Dates />
+        <Info />
+    </div>
 );
 
 export default Widgets;

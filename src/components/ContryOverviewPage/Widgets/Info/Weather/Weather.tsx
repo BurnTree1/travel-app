@@ -9,10 +9,11 @@ export const Weather = () => {
   const desc = useSelector((state: AppRootReducer) => state.widgets.weather.desc);
   const icon = useSelector((state: AppRootReducer) => state.widgets.weather.icon);
   const city = useSelector((state: AppRootReducer) => state.countries.country.capital);
+  const lang = useSelector((state: AppRootReducer) => state.lang.lang);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(setWeather(city));
-  }, [city]);
+    dispatch(setWeather(city, lang));
+  }, [city, lang]);
   return (
         <div className={styles.weather}>
             <img src={`http://openweathermap.org/img/wn/${icon}.png`} alt="icon" />
