@@ -10,6 +10,9 @@ a {
     position: relative;
     cursor: pointer;
     transition: all .2s linear;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
 }
 
 .card:hover {
@@ -25,6 +28,7 @@ a {
     bottom: 0;
     z-index: -1;
     height: 100%;
+    border-radius: 5px;
 }
 
 .card__desc {

@@ -12,12 +12,10 @@ export const Card: FC<propsType> = ({
   name, capital, iso, imageUrl,
 }) => (
     <Link to={`countries/${iso}`}>
-        <div className={styles.card}>
-            <img
-              src={imageUrl}
-              alt="country"
-              className={styles.card__img}
-            />
+        <div
+          className={styles.card}
+          style={{ backgroundImage: `url(${imageUrl})` }}
+        >
             <div className={styles.card__desc}>
                 <div className={styles.card__country}>
                     <div

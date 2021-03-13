@@ -3,6 +3,8 @@ import {
   FETCH_COUNTRIES,
   FILTER_COUNTRIES,
   FETCH_COUNTRY,
+  FETCH_COUNTRIES_STARTED,
+  FETCH_COUNTRIES_ERROR,
   FETCH_COUNTRY_STARTED,
   FETCH_COUNTRY_ERROR,
 } from 'Actions';
@@ -12,7 +14,8 @@ const initialState: IReduxStateCountries = {
   countries: [] as Array<countriesType>,
   foundCountries: [] as Array<countriesType>,
   country: {} as countriesType,
-  loading: true,
+  countryLoading: true,
+  countriesLoading: true,
 };
 
 type InitialState = typeof initialState;
@@ -21,6 +24,7 @@ const handlers = {
   [FETCH_COUNTRIES]: (state, { countries }) => ({
     ...state,
     countries,
+    countriesLoading: false,
   }),
   [FILTER_COUNTRIES]: (state, { searchText }) => ({
     ...state,
@@ -36,19 +40,28 @@ const handlers = {
       return false;
     })],
   }),
-  [FETCH_COUNTRY_STARTED]: (state) => ({
+  [FETCH_COUNTRIES_STARTED]: (state) => ({
     ...state,
-    loading: true,
+    countriesLoading: true,
   }),
-  [FETCH_COUNTRY_ERROR]: (state, { error }) => ({
+  [FETCH_COUNTRIES_ERROR]: (state, { error }) => ({
     ...state,
     loading: false,
-    error,
+    countriesError: error,
   }),
   [FETCH_COUNTRY]: (state, { country }) => ({
     ...state,
     country,
+    countryLoading: false,
+  }),
+  [FETCH_COUNTRY_STARTED]: (state) => ({
+    ...state,
+    countryLoading: true,
+  }),
+  [FETCH_COUNTRY_ERROR]: (state, { error }) => ({
+    ...state,
     loading: false,
+    countryError: error,
   }),
 };
 

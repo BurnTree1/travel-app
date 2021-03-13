@@ -13,7 +13,7 @@ const HeroSection = () => {
                   <div className={styles.heroFlag}>
                       <img src={countryData.flagImageUrl} alt="flag img" />
                   </div>
-                  <p>{countryData.name}</p>
+                  <h1>{countryData.name}</h1>
                   <p>{countryData.capital}</p>
               </div>
           <div className={styles.heroImage}>

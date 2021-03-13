@@ -1,0 +1,16 @@
+.blackout {
+  position: fixed;
+  width: 324px;
+  background: linear-gradient(
+      263.9deg,
+      rgba(0, 0, 0, 0.7) 1.4%,
+      rgba(0, 0, 0, 0) 83.8%
+  );
+  height: 100%;
+  right: 0;
+  top: 0;
+
+  @media screen and (max-width: 1440px) {
+      display: none;
+  }
+}
