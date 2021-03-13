@@ -17,10 +17,15 @@ type mapStateToPropsType = {
   country: countriesType
   lang: string
 };
+
+type Params = {
+  id: string
+};
+
 export const CountryOverviewPage: FC<mapStateToPropsType> = ({ country, lang }) => {
   console.log('rendered countryOverview ');
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { id } = useParams<Params>();
   useEffect(() => {
     dispatch(setCountry(id, lang));
   }, [id, lang]);
