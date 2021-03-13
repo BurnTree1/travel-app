@@ -13,9 +13,10 @@ module.exports = {
     extensions: ['.js', '.jsx', '.tsx', '.ts'],
     alias: {
       Actions: path.resolve(__dirname, 'src/store/actions/'),
-      Helpers: path.resolve(__dirname, 'src/store/helpers/'),
+      Helpers: path.resolve(__dirname, 'src/helpers/'),
       Assets: path.resolve(__dirname, 'src/assets/'),
       Types: path.resolve(__dirname, 'src/types/'),
+      Api: path.resolve(__dirname, 'src/api/'),
     },
   },
   module: {
