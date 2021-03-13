@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import MainPage from './MainPage/MainPage.tsx';
-import CountryOverviewPage from './ContryOverviewPage/CountryOverviewPage';
+import CountryOverviewPage from './ContryOverviewPage/CountryOverviewPage.tsx';
 
 const App = () => (
     <div className="app">

@@ -1,11 +1,18 @@
 import _ from 'lodash';
-import { FETCH_COUNTRIES, FILTER_COUNTRIES, FETCH_COUNTRY } from 'Actions';
-import { countriesType } from 'Types';
+import {
+  FETCH_COUNTRIES,
+  FILTER_COUNTRIES,
+  FETCH_COUNTRY,
+  FETCH_COUNTRY_STARTED,
+  FETCH_COUNTRY_ERROR,
+} from 'Actions';
+import { countriesType, IReduxStateCountries } from 'Types';
 
-const initialState = {
+const initialState: IReduxStateCountries = {
   countries: [] as Array<countriesType>,
   foundCountries: [] as Array<countriesType>,
   country: {} as countriesType,
+  loading: true,
 };
 
 type InitialState = typeof initialState;
@@ -29,9 +36,19 @@ const handlers = {
       return false;
     })],
   }),
+  [FETCH_COUNTRY_STARTED]: (state) => ({
+    ...state,
+    loading: true,
+  }),
+  [FETCH_COUNTRY_ERROR]: (state, { error }) => ({
+    ...state,
+    loading: false,
+    error,
+  }),
   [FETCH_COUNTRY]: (state, { country }) => ({
     ...state,
     country,
+    loading: false,
   }),
 };
 
