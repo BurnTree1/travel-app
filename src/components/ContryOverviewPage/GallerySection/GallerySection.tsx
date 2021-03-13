@@ -24,7 +24,8 @@ const GallerySection = (props: any) => {
   }
 
   return (
-        <section className={styles.galleryWrapper}>
+        <section className={styles.gallerySection}>
+          <div className={styles.galleryWrapper}>
             {images && (
               <ImageGallery
                 items={images}
@@ -33,6 +34,7 @@ const GallerySection = (props: any) => {
                 showPlayButton={false}
               />
             )}
+          </div>
         </section>
   );
 };
