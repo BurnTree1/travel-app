@@ -1,7 +1,8 @@
 {
-    "header.search": "Search",
-    "language.lang": "Language",
-    "language.en": "Eng",
-    "language.ru": "Ru",
-    "language.de": "De"
+  "header.search" : "Search",
+  "language.lang": "Language",
+  "language.en": "Eng",
+  "language.ru": "Ru",
+  "language.de": "De",
+  "description.about": "About the country"
 }

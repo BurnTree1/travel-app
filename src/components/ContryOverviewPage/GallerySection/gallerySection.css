@@ -1,0 +1,15 @@
+.image-gallery-slide .image-gallery-description {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+@media (max-width: 768px) {
+  .image-gallery-slide .image-gallery-description {
+    font-size: 12px;
+    line-height: 16px;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

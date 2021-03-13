@@ -1,0 +1,28 @@
+.gallerySection {
+  width: 100%;
+  padding: 54px 0;
+  background-color: rgba(0, 0, 0, 0.54);
+}
+
+@media (max-width: 1024px) {
+  .gallerySection {
+    padding: 54px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallerySection {
+    padding: 54px 25px;
+  }
+}
+
+.galleryWrapper {
+  margin: 0 auto;
+  max-width: 1018px;
+}
+
+@media (min-width: 1024px) {
+  .galleryWrapper {
+    padding-right: 200px;
+  }
+}

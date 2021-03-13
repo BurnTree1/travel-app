@@ -5,6 +5,9 @@ export const FETCH_COUNTRIES = 'COUNTRIES/FETCH';
 export const FETCH_COUNTRY = 'COUNTRY/FETCH';
 export const FILTER_COUNTRIES = 'COUNTRIES/FILTER';
 
+export const FETCH_COUNTRY_STARTED = 'COUNTRIES/FETCH_COUNTRY_STARTED';
+export const FETCH_COUNTRY_ERROR = 'COUNTRIES/FETCH_COUNTRY_ERROR';
+
 type fetchCountriesType = {
   type: typeof FETCH_COUNTRIES
   payload: { countries: Array<countriesType> }
@@ -37,7 +40,30 @@ export const setCountries = (lang: string) => async (dispatch) => {
   dispatch(fetchCountries(response));
 };
 
+type startFetchCountryType = {
+  type: typeof FETCH_COUNTRY_STARTED
+};
+
+export const startFetchCountry = (): startFetchCountryType => ({
+  type: FETCH_COUNTRY_STARTED,
+});
+
+type errorFetchType = {
+  type: typeof FETCH_COUNTRY_ERROR
+  payload: { error: Error },
+};
+
+export const errorFetch = (error: Error): errorFetchType => ({
+  type: FETCH_COUNTRY_ERROR,
+  payload: { error },
+});
+
 export const setCountry = (iso: string, lang: string) => async (dispatch) => {
-  const response = await countriesAPI.getCountry(iso, lang);
-  dispatch(fetchCountry(response));
+  dispatch(startFetchCountry());
+  try {
+    const response = await countriesAPI.getCountry(iso, lang);
+    dispatch(fetchCountry(response));
+  } catch (e) {
+    dispatch(errorFetch(e));
+  }
 };

@@ -16,24 +16,36 @@ import { AppRootReducer } from '../../store';
 type mapStateToPropsType = {
   country: countriesType
   lang: string
+  loading: boolean
 };
-export const CountryOverviewPage: FC<mapStateToPropsType> = ({ country, lang }) => {
+
+type Params = {
+  id: string
+};
+
+const CountryOverviewPage: FC<mapStateToPropsType> = ({ country, lang, loading }) => {
   console.log('rendered countryOverview ');
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { id } = useParams<Params>();
   useEffect(() => {
     dispatch(setCountry(id, lang));
   }, [id, lang]);
   return (
         <div>
-            <Header search={false} />
-            <HeroSection />
-            <Widgets country={country} />
-            <DescriptionSection />
-            <GallerySection />
-            <MediaSection />
-            <MapSection />
-            <Footer />
+          <Header search={false} />
+          {loading
+            ? 'Loading...'
+            : (
+                <>
+                  <HeroSection />
+                  <DescriptionSection />
+                  <GallerySection />
+                  <MediaSection />
+                  <MapSection />
+                  <Widgets country={country} />
+                </>
+            )}
+          <Footer />
         </div>
   );
 };
@@ -41,6 +53,7 @@ export const CountryOverviewPage: FC<mapStateToPropsType> = ({ country, lang }) 
 const mapStateToProps = (state) => ({
   country: state.countries.country,
   lang: state.lang.lang,
+  loading: state.countries.loading,
 });
 
 export default connect<mapStateToPropsType, AppRootReducer>(mapStateToProps)(CountryOverviewPage);
