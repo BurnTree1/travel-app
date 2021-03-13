@@ -1,7 +1,7 @@
 import React from 'react';
 import ImageGallery from 'react-image-gallery';
 import { connect } from 'react-redux';
-import { sight, IReduxState } from 'Types';
+import { sight, IReduxState, countriesType } from 'Types';
 import styles from './GallerySection.module.scss';
 import './gallerySection.css';
 
@@ -11,7 +11,7 @@ interface IImage {
   description: string;
 }
 
-const GallerySection = (props: any) => {
+const GallerySection = (props: { country: countriesType }) => {
   const { country } = props;
   let images: IImage[] | null = null;
   if (country) {
@@ -24,18 +24,22 @@ const GallerySection = (props: any) => {
   }
 
   return (
-        <section className={styles.gallerySection}>
-          <div className={styles.galleryWrapper}>
-            {images && (
-              <ImageGallery
-                items={images}
-                autoPlay={false}
-                thumbnailPosition="left"
-                showPlayButton={false}
-              />
-            )}
-          </div>
-        </section>
+    images && images.length > 0
+      ? (
+          <section className={styles.gallerySection}>
+            <div className={styles.galleryWrapper}>
+              {images && (
+                <ImageGallery
+                  items={images}
+                  autoPlay={false}
+                  thumbnailPosition="left"
+                  showPlayButton={false}
+                />
+              )}
+            </div>
+          </section>
+      )
+      : <div />
   );
 };
 
