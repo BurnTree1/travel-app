@@ -17,6 +17,7 @@ export type countriesType = {
   currency: string
   ISO: string
   sights: sight[]
+  timeZone: string
 };
 
 export interface IReduxStateCountries {

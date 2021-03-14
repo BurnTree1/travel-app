@@ -2,9 +2,8 @@ import React from 'react';
 import { Info } from './Info/Info';
 import { Dates } from './Dates/Dates';
 
-const Widgets = ({ country }) => (
+const Widgets = () => (
     <div>
-        {country.name}
         <Dates />
         <Info />
     </div>

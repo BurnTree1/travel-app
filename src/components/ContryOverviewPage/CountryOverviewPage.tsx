@@ -25,12 +25,11 @@ type Params = {
   id: string
 };
 
-const CountryOverviewPage: FC<mapStateToPropsType> = ({ country, lang, loading }) => {
+const CountryOverviewPage: FC<mapStateToPropsType> = ({ lang, loading }) => {
   console.log('rendered countryOverview ');
   const dispatch = useDispatch();
   const { id } = useParams<Params>();
   useEffect(() => {
-    console.log(id);
     dispatch(setCountry(id, lang));
   }, [id, lang]);
   return (
@@ -45,7 +44,7 @@ const CountryOverviewPage: FC<mapStateToPropsType> = ({ country, lang, loading }
                   <GallerySection />
                   <MediaSection />
                   <MapSection />
-                  <Widgets country={country} />
+                  <Widgets />
                   <div className={styles.blackout} />
                 </>
             )}
