@@ -12,6 +12,8 @@ import MapSection from './MapSection/MapSection';
 import { Footer } from '../Footer/Footer';
 import Widgets from './Widgets/Widgets';
 import { AppRootReducer } from '../../store';
+import styles from './CountryOverviewPage.module.scss';
+import { Loader } from '../Loader/Loader';
 
 type mapStateToPropsType = {
   country: countriesType
@@ -28,13 +30,14 @@ const CountryOverviewPage: FC<mapStateToPropsType> = ({ country, lang, loading }
   const dispatch = useDispatch();
   const { id } = useParams<Params>();
   useEffect(() => {
+    console.log(id);
     dispatch(setCountry(id, lang));
   }, [id, lang]);
   return (
         <div>
           <Header search={false} />
           {loading
-            ? 'Loading...'
+            ? <Loader />
             : (
                 <>
                   <HeroSection />
@@ -43,6 +46,7 @@ const CountryOverviewPage: FC<mapStateToPropsType> = ({ country, lang, loading }
                   <MediaSection />
                   <MapSection />
                   <Widgets country={country} />
+                  <div className={styles.blackout} />
                 </>
             )}
           <Footer />
@@ -53,7 +57,7 @@ const CountryOverviewPage: FC<mapStateToPropsType> = ({ country, lang, loading }
 const mapStateToProps = (state) => ({
   country: state.countries.country,
   lang: state.lang.lang,
-  loading: state.countries.loading,
+  loading: state.countries.countryLoading,
 });
 
 export default connect<mapStateToPropsType, AppRootReducer>(mapStateToProps)(CountryOverviewPage);

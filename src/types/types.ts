@@ -23,7 +23,8 @@ export interface IReduxStateCountries {
   countries: countriesType[];
   foundCountries: countriesType[];
   country: countriesType;
-  loading: boolean;
+  countryLoading: boolean;
+  countriesLoading: boolean;
 }
 
 export interface IReduxStateLanguage {
