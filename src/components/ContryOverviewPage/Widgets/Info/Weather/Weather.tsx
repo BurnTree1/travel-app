@@ -16,12 +16,15 @@ export const Weather = () => {
   }, [city, lang]);
   return (
         <div className={styles.weather}>
-            <img src={`http://openweathermap.org/img/wn/${icon}.png`} alt="icon" />
+            <img
+              src={`http://openweathermap.org/img/wn/${icon}.png`}
+              alt="icon"
+            />
             <div className={styles.weather__inner}>
                 <span className="weather__temp">
 {temp}
-{' '}
-C
+                    {' '}
+                    C
                 </span>
                 <span className={styles.weather__desc}>{desc}</span>
             </div>
