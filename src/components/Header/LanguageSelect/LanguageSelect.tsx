@@ -7,6 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import { changeLanguage } from 'Actions';
 import styles from '../Header.module.css';
 import '../Header.css';
+import { useLocalLang, useSetLocalLang } from '../../../helpers/hooks';
 
 const mapStateToProps = (state) => ({
   language: state.lang,
@@ -23,17 +24,14 @@ interface IProps {
 const LanguageSelect: FC<IProps> = (props: IProps) => {
   const { language } = props;
   const [lang, setLang] = React.useState<string>(language.lang);
-  if (!localStorage.getItem('lang')) {
-    localStorage.setItem('lang', lang);
-  }
-  const localLang = localStorage.getItem('lang');
+  const localLang = useLocalLang(lang);
   useEffect(() => {
     if (localLang) {
       props.changeLanguage(localLang);
     }
   }, []);
   const handleChange = (event: React.ChangeEvent<any>) => {
-    localStorage.setItem('lang', event.target.value);
+    useSetLocalLang(event.target.value);
     props.changeLanguage(event.target.value);
     setLang(event.target.value);
   };

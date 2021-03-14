@@ -18,3 +18,9 @@
 .date__icon {
     width: 50px;
 }
+
+@media (max-width: 700px) {
+    .date {
+        background: 0;
+    }
+}

@@ -9,3 +9,9 @@
     font-size: 30px;
     line-height: 24px;
 }
+
+@media (max-width: 700px) {
+    .currency {
+        align-items: initial;
+    }
+}
