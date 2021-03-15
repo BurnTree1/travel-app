@@ -3,13 +3,12 @@ import { ExpandMore, ExpandLess } from '@material-ui/icons';
 import { connect } from 'react-redux';
 import { IReduxState, countriesType } from 'Types';
 import {
-  Fab, ListItemText, Menu, MenuItem, MenuProps, withStyles,
+  Fab, Menu, MenuProps, withStyles,
 } from '@material-ui/core';
+import UserCard from './UserCard/UserCard';
 
 const StyledMenu = withStyles({
-  paper: {
-    border: '1px solid #d3d4d5',
-  },
+  paper: {},
 })((props: MenuProps) => (
   <Menu
     elevation={0}
@@ -27,17 +26,6 @@ const StyledMenu = withStyles({
   />
 ));
 
-const StyledMenuItem = withStyles((theme) => ({
-  root: {
-    '&:focus': {
-      backgroundColor: theme.palette.primary.main,
-      '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
-        color: theme.palette.common.white,
-      },
-    },
-  },
-}))(MenuItem);
-
 const SightScoresList = (props: { country: countriesType }) => {
   const { country } = props;
   console.log(country);
@@ -52,7 +40,7 @@ const SightScoresList = (props: { country: countriesType }) => {
 
   return (
     <>
-    <Fab color="primary" aria-label="add" size="medium" onClick={handleClick}>
+    <Fab color="primary" aria-label="add" size="small" onClick={handleClick}>
       {anchorEl ? <ExpandLess /> : <ExpandMore />}
     </Fab>
     <StyledMenu
@@ -61,16 +49,14 @@ const SightScoresList = (props: { country: countriesType }) => {
       keepMounted
       open={Boolean(anchorEl)}
       onClose={handleClose}
+      className="custom-material-list"
     >
-        <StyledMenuItem>
-          <ListItemText primary="Sent mail" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemText primary="Drafts" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemText primary="Inbox" />
-        </StyledMenuItem>
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
     </StyledMenu>
     </>
   );

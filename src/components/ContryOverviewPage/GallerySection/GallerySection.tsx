@@ -28,8 +28,10 @@ const GallerySection = (props: { country: countriesType }) => {
     images && images.length > 0
       ? (
           <section className={styles.gallerySection}>
-            <SightScore />
             <div className={styles.galleryWrapper}>
+              <div className={styles.scoreWrapper}>
+                <SightScore />
+              </div>
               {images && (
                 <ImageGallery
                   items={images}

@@ -12,16 +12,17 @@ const SightScore = (props: { country: countriesType }) => {
   console.log(country);
 
   return (
-    <>
+    <div className="sight-score-controls">
       <SightScoresList />
-      <Box component="fieldset" mb={3} borderColor="transparent">
+      <Box component="fieldset" mb={0} borderColor="transparent">
           <Rating
             name="customized-empty"
-            defaultValue={2}
+            defaultValue={0}
             emptyIcon={<StarBorderIcon fontSize="inherit" />}
+            onChange={(...arg) => console.log(arg)}
           />
       </Box>
-    </>
+    </div>
   );
 };
 
