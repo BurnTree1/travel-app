@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import logo from 'Assets/image/logo.svg';
-import avatar from 'Assets/image/avatar.svg';
 import styles from './Header.module.css';
 import './Header.css';
 import { Search } from './Search/Search';
 import LanguageSelect from './LanguageSelect/LanguageSelect';
+import User from './User/User';
 
 type propsType = {
   findCountries?: (text: string) => void
@@ -29,7 +29,7 @@ export const Header: FC<propsType> = (props) => {
             <LanguageSelect />
           </div>
           <div className={styles.avatar}>
-            <img src={avatar} alt="avatar" className={styles.avatar__img} />
+              <User />
           </div>
         </div>
       </div>
