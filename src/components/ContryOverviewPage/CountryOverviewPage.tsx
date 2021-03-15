@@ -26,11 +26,9 @@ type Params = {
 };
 
 const CountryOverviewPage: FC<mapStateToPropsType> = ({ country, lang, loading }) => {
-  console.log('rendered countryOverview ');
   const dispatch = useDispatch();
   const { id } = useParams<Params>();
   useEffect(() => {
-    console.log(id);
     dispatch(setCountry(id, lang));
   }, [id, lang]);
   return (
