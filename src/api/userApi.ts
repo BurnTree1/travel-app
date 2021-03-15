@@ -1,26 +1,41 @@
-// const API = 'https://peaceful-earth-11439.herokuapp.com';
 import axios from 'axios';
 
-const API = 'http://localhost:5000';
+const USER_API = '/api/user';
 
 export const userApi = {
   get() {
-    return axios.get(`${API}/user`)
-      .then((response) => response.data);
-  },
-  signIn(login: string, password: string) {
     return axios({
-      url: `${API}/user/signIn`,
-      method: 'POST',
-      data: { login, password },
+      url: `${USER_API}`,
+      method: 'GET',
+      withCredentials: true,
     })
       .then((response) => response.data);
   },
-  signUp(login: string, password: string, image: any) {
+  logout() {
     return axios({
-      url: `${API}/user/signUp`,
+      url: `${USER_API}/logout`,
+      method: 'GET',
+      withCredentials: true,
+    });
+  },
+  signIn(login: string, password: string) {
+    return axios({
+      url: `${USER_API}/signIn`,
       method: 'POST',
-      data: { login, password, image },
+      withCredentials: true,
+      data: { login, password },
+    });
+  },
+  signUp(login: string, password: string, image: any) {
+    const formData = new FormData();
+    formData.append('login', login);
+    formData.append('password', password);
+    formData.append('image', image);
+    return axios({
+      url: `${USER_API}/signUp`,
+      method: 'POST',
+      withCredentials: true,
+      data: formData,
     })
       .then((response) => response.data);
   },

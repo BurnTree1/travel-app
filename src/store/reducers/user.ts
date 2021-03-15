@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { INIT_USER } from 'Actions';
+import { INIT_USER, LOGOUT } from 'Actions';
 
 const initialState = {
   isAuth: false,
@@ -11,6 +11,9 @@ const handlers = {
   [INIT_USER]: (state, { user }) => ({
     ...user,
     isAuth: true,
+  }),
+  [LOGOUT]: () => ({
+    ...initialState,
   }),
 };
 

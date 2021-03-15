@@ -48,7 +48,16 @@ module.exports = {
     new ESLintPlugin(),
   ],
   devServer: {
+    historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: 'https://peaceful-earth-11439.herokuapp.com',
+        pathRewrite: { '^/api': '' },
+        changeOrigin: true,
+      },
+    },
     overlay: true,
     open: true,
+    port: 8080,
   },
 };

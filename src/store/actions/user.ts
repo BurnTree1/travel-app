@@ -1,6 +1,7 @@
 import { userApi } from 'Api';
 
 export const INIT_USER = 'USER/INIT';
+export const LOGOUT = 'USER/LOGOUT';
 
 type actionType = {
   type: string,
@@ -16,3 +17,5 @@ export const fetchUser = () => (dispatch) => {
   userApi.get()
     .then((user) => dispatch(initUser(user)));
 };
+
+export const logout = () => ({ type: LOGOUT });
