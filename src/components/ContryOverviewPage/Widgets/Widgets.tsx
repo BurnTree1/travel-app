@@ -1,10 +1,10 @@
 import React from 'react';
 import { Info } from './Info/Info';
 import { Dates } from './Dates/Dates';
+import './Widgets.scss';
 
-const Widgets = ({ country }) => (
-    <div>
-        {country.name}
+const Widgets = () => (
+    <div className="widgets">
         <Dates />
         <Info />
     </div>

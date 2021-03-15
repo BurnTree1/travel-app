@@ -43,7 +43,6 @@
     "city-timezones": "^1.2.0",
     "countries-and-timezones": "^2.3.1",
     "leaflet": "^1.7.1",
-    "leaflet-draw-locales": "^1.2.1",
     "lodash": "^4.17.20",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
