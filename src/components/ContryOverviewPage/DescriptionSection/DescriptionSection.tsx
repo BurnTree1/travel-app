@@ -24,7 +24,6 @@ const DescriptionSection = () => {
                     <img src="http://surl.li/nlqk" alt="description img" />
                 </div>
             </div>
-            <div className={styles.blackout} />
         </section>
   );
 };

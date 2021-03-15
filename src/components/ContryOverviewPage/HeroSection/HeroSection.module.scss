@@ -15,7 +15,7 @@
     margin: 148px 0 0 200px;
     height: 222px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     flex-direction: column;
 
     & > p {
@@ -24,22 +24,6 @@
         border: 0;
 
         &:nth-of-type(1) {
-            font-weight: 500;
-            font-size: 72px;
-            line-height: 24px;
-            padding-top: 30px;
-
-            @media screen and (max-width: 1000px) {
-                font-size: 48px;
-            }
-
-            @media screen and (max-width: 768px){
-                font-size: 24px;
-                padding-top: 0;
-            }
-        }
-
-        &:nth-of-type(2) {
             font-weight: normal;
             font-size: 24px;
             line-height: 24px;
@@ -60,6 +44,26 @@
 
     @media screen and (max-width: 768px) {
         height: 180px;
+    }
+
+    h1 {
+        font-weight: 500;
+        font-size: 72px;
+        line-height: 24px;
+        margin-bottom: 32px;
+        margin-top: 20px;
+        color: #fff;
+    
+        @media screen and (max-width: 1000px) {
+            font-size: 48px;
+        }
+    
+        @media screen and (max-width: 768px){
+            margin-bottom: 0;
+            margin-top: 0;
+            font-size: 24px;
+            padding-top: 0;
+        }
     }
 }
 
@@ -90,7 +94,7 @@
     margin: 0;
     padding: 0;
     border: 0;
-    width: 121px;
+    width: 64px;
     height: 63px;
     object-fit: contain;
 
@@ -98,16 +102,6 @@
         width: 100%;
         height: auto;
         display: block;
-
-        @media screen and (max-width: 768px) {
-            height: 100%;
-        }
-
-    }
-
-    @media screen and (max-width: 768px){
-        width: 100px;
-        height: 100px;
     }
 }
 
@@ -124,3 +118,7 @@
     }
 }
 
+.flagImageUrl {
+    width: 64px;
+    height: auto;
+}

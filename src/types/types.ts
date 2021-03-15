@@ -17,13 +17,15 @@ export type countriesType = {
   currency: string
   ISO: string
   sights: sight[]
+  timeZone: string
 };
 
 export interface IReduxStateCountries {
   countries: countriesType[];
   foundCountries: countriesType[];
   country: countriesType;
-  loading: boolean;
+  countryLoading: boolean;
+  countriesLoading: boolean;
 }
 
 export interface IReduxStateLanguage {

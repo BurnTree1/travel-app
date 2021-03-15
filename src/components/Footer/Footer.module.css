@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #fff;
 }
 
 .year {
@@ -18,4 +19,44 @@
     .footer {
         display: none;
     }
+}
+
+.school__img {
+    width: 100px;
+    height: 37.5px;
+}
+
+.feedback {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.githubs {
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.githubs__row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.githubs__row>a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.githubs__row>a:last-of-type {
+    margin-right: 0;
+}
+
+.git__img {
+    width: 30px;
+    height: auto;
 }

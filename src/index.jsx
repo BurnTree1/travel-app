@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 import store from './store';
 import App from './components/App';
@@ -37,11 +37,11 @@ const Root = () => {
 
   return (
     <Provider store={store}>
-        <BrowserRouter>
+        <HashRouter>
             <IntlProvider locale={locale} defaultLocale="en" messages={dictionary[locale]}>
                 <App />
             </IntlProvider>
-        </BrowserRouter>
+        </HashRouter>
     </Provider>
   );
 };

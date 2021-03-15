@@ -1,8 +1,9 @@
 .header {
+    position: relative;
+    z-index: 1;
     height: 95px;
     padding: 20px 40px;
     background: #010C15;
-    border: 1px solid #CEBABA;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -54,7 +55,12 @@
     }
 
     .logo {
-        display: none;
+        height: 30px;
+    }
+
+    .header__link {
+        position: absolute;
+        right: 120px;
     }
 
     .avatar__img {
