@@ -6,11 +6,10 @@
     "dev": "webpack serve",
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",
-    "test": "react-scripts test",
+    "test": "jest --config jest.config.ts",
     "eject": "react-scripts eject",
     "lint:fix": "eslint . --fix",
-    "lint": "eslint ./src/**/*.ts*",
-    "test-jest": "jest --config jest.config.ts"
+    "lint": "eslint ./src/**/*.ts*"
   },
   "husky": {
     "hooks": {
