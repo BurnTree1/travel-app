@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { sight, IReduxState, countriesType } from 'Types';
 import styles from './GallerySection.module.scss';
 import './gallerySection.css';
+import SightScore from './SightScore/SightScore';
 
 interface IImage {
   original: string;
@@ -27,6 +28,7 @@ const GallerySection = (props: { country: countriesType }) => {
     images && images.length > 0
       ? (
           <section className={styles.gallerySection}>
+            <SightScore />
             <div className={styles.galleryWrapper}>
               {images && (
                 <ImageGallery
@@ -34,6 +36,7 @@ const GallerySection = (props: { country: countriesType }) => {
                   autoPlay={false}
                   thumbnailPosition="left"
                   showPlayButton={false}
+                  onSlide={(...arg) => console.log(arg)}
                 />
               )}
             </div>
