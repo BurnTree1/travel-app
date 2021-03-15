@@ -10,15 +10,13 @@ function LoginWithAvatar({ login, setLogin, setFile }) {
     const reader = new FileReader();
     setFile(file);
     reader.onloadend = () => {
-      // @ts-ignore
-      setImage(reader.result);
+      setImage((reader as any).result);
     };
     reader.readAsDataURL(file);
   };
 
   return (
         <Grid item style={{ display: 'flex' }}>
-            {/* @ts-ignore */}
             <Input
               style={{ width: '165px' }}
               error={login === ''}

@@ -1,2 +1,3 @@
 export { userApi } from './userApi';
-export { countriesAPI } from './api';
+export { countriesAPI } from './countriesAPI';
+export { widgetsAPI } from './widgetsAPI';
