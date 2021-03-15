@@ -1,15 +1,25 @@
 .image-gallery-slide .image-gallery-description {
-  font-size: 12px;
-  line-height: 16px;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.image-gallery-content.left .image-gallery-slide .image-gallery-image, .image-gallery-content.right .image-gallery-slide .image-gallery-image {
+    object-fit: initial;
+    max-height: 500px;
+}
+
+.image-gallery-thumbnail .image-gallery-thumbnail-image {
+    max-height: 60px;
 }
 
 @media (max-width: 768px) {
-  .image-gallery-slide .image-gallery-description {
-    font-size: 12px;
-    line-height: 16px;
-    white-space: nowrap;
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+    .image-gallery-slide .image-gallery-description {
+        font-size: 12px;
+        line-height: 16px;
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        bottom: 0;
+    }
 }

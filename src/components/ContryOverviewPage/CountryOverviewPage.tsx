@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { countriesType } from 'Types';
 import { setCountry } from 'Actions';
 import burger from 'Assets/image/burger.svg';
@@ -29,6 +29,10 @@ type Params = {
 const CountryOverviewPage: FC<mapStateToPropsType> = ({ lang, loading }) => {
   console.log('rendered countryOverview ');
   const [widgetsStyle, setWidgetsStyle] = useState<string>('');
+  const { pathname } = useLocation<Location>();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   const dispatch = useDispatch();
   const { id } = useParams<Params>();
   useEffect(() => {
@@ -47,7 +51,11 @@ const CountryOverviewPage: FC<mapStateToPropsType> = ({ lang, loading }) => {
   return (
         <div>
             <Header search={false} />
-            <button type="button" onClick={onWidgetsShow} className={styles.burger}>
+            <button
+              type="button"
+              onClick={onWidgetsShow}
+              className={styles.burger}
+            >
                 <img
                   src={burger}
                   alt="menu"
@@ -59,7 +67,11 @@ const CountryOverviewPage: FC<mapStateToPropsType> = ({ lang, loading }) => {
                     <>
                         <div className={widgetsStyle}>
                             <HeroSection />
-                            <button type="button" onClick={onWidgetsClose} className="widgets__close">
+                            <button
+                              type="button"
+                              onClick={onWidgetsClose}
+                              className="widgets__close"
+                            >
                                 <img
                                   src={close}
                                   alt="close"

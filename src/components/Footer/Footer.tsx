@@ -26,5 +26,6 @@ export const Footer: FC = () => (
             <a href="https://rs.school/js/" className="school">
                 <img src={school} alt="rs-school" className={styles.school__img} />
             </a>
+            in 2021
         </div>
 );
