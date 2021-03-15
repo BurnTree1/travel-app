@@ -17,6 +17,7 @@
 }
 
 .galleryWrapper {
+  position: relative;
   margin: 0 auto;
   max-width: 1018px;
 }
@@ -24,5 +25,27 @@
 @media (min-width: 1024px) {
   .galleryWrapper {
     padding-right: 200px;
+  }
+}
+
+.scoreWrapper {
+  position: absolute;
+  right: 10px;
+  top: 13px;
+  z-index: 2;
+}
+
+@media (min-width: 1024px) {
+
+  .scoreWrapper {
+    right: 210px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .scoreWrapper {
+    top: -50px;
+    right: 0;
   }
 }
