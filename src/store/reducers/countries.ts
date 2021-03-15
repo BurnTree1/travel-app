@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { countriesType, IReduxStateCountries } from 'Types';
 import {
   FETCH_COUNTRIES,
   FILTER_COUNTRIES,
@@ -7,8 +8,7 @@ import {
   FETCH_COUNTRIES_ERROR,
   FETCH_COUNTRY_STARTED,
   FETCH_COUNTRY_ERROR,
-} from 'Actions';
-import { countriesType, IReduxStateCountries } from 'Types';
+} from '../actions/countries';
 
 const initialState: IReduxStateCountries = {
   countries: [] as Array<countriesType>,
