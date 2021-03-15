@@ -17,7 +17,7 @@ export const Header: FC<propsType> = (props) => {
   return (
     <div>
       <div className={styles.header}>
-        <Link to="/" className="header__link">
+        <Link to="/" className={styles.header__link}>
           <img src={logo} alt="logo" className={styles.logo} />
         </Link>
         <div className={styles.header__right}>
