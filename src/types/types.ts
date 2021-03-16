@@ -1,4 +1,5 @@
 export type sight = {
+  _id: string;
   description: string;
   imageUrl: string;
   name: string;
@@ -37,6 +38,7 @@ export interface IReduxState extends IReduxStateCountries, IReduxStateLanguage {
 }
 
 export interface IScoreData {
+  user: string;
   name: string;
   img: any;
   score: number;

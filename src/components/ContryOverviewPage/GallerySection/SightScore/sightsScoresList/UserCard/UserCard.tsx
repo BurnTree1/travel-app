@@ -1,9 +1,9 @@
 import React from 'react';
-import { MenuItem } from '@material-ui/core';
+import { Avatar, MenuItem } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { IScoreData } from 'Types';
-import avatar from 'Assets/image/avatar.svg';
+import { arrayBufferToBase64 } from 'Helpers/common.helpers';
 import styles from './UserCard.module.scss';
 import './userCard.css';
 
@@ -13,15 +13,15 @@ const UserCard = (props: { scoreData: IScoreData }) => {
   return (
     <MenuItem className="custom-material-li">
       <section className={styles.userCard}>
-        <p className={styles.userCard__imageWrapper}>
-          <img className={styles.userCard__image} src={avatar} alt="img" />
-        </p>
+        <div className={styles.userCard__imageWrapper}>
+          <Avatar src={arrayBufferToBase64(scoreData.img)} className={styles.userCard__image} />
+        </div>
         <div className={styles.userCard__inner}>
           <h3 className={styles.userCard__name}>{scoreData.name}</h3>
           <div className={styles.userCard__rating}>
             <Rating
               name="customized-empty"
-              defaultValue={scoreData.score}
+              value={scoreData.score}
               emptyIcon={<StarBorderIcon fontSize="inherit" />}
               readOnly
             />

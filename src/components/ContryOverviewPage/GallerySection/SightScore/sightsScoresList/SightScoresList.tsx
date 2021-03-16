@@ -27,8 +27,6 @@ const StyledMenu = withStyles({
 
 const SightScoresList = (props: { scoreList: IScoreData[] }) => {
   const { scoreList } = props;
-  console.log(props);
-  console.log(scoreList);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -57,7 +55,7 @@ const SightScoresList = (props: { scoreList: IScoreData[] }) => {
           ? scoreList.map((item, index) => (<UserCard key={index} scoreData={item} />))
           : (
               <MenuItem className="custom-material-li">
-                  <p className={styles.noData}>No Data</p>
+                  <p className={styles.noData}>No Scores</p>
               </MenuItem>
           )
       }

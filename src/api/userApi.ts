@@ -39,4 +39,20 @@ export const userApi = {
     })
       .then((response) => response.data);
   },
+  score(score: number, sightId: string) {
+    const body: { score: number, id: string } = { score: 0, id: '' };
+    body.score = score;
+    body.id = sightId;
+
+    return axios({
+      url: `${USER_API}/score`,
+      method: 'POST',
+      withCredentials: true,
+      data: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.data);
+  },
 };
