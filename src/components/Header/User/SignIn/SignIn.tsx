@@ -6,6 +6,7 @@ import {
   DialogTitle,
   Grid,
   Typography,
+  CircularProgress,
 } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { initUser } from 'Actions';
@@ -25,6 +26,7 @@ const SignIn: FC<props> = ({ open, onClose, openSignUp }) => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [isError, setIsError] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const dispatch = useDispatch();
 
   const clearAndClose = () => {
@@ -34,7 +36,15 @@ const SignIn: FC<props> = ({ open, onClose, openSignUp }) => {
     onClose();
   };
 
+  const validate = () => ((login && login !== '')
+        && (password && password !== ''));
+
   const sendUserData = () => {
+    if (!validate()) {
+      setIsError(true);
+      return;
+    }
+    setIsLoaded(true);
     userApi.signIn(login, password)
       .then(({ data }) => {
         dispatch(initUser(data));
@@ -42,7 +52,8 @@ const SignIn: FC<props> = ({ open, onClose, openSignUp }) => {
       })
       .catch(() => {
         setIsError(true);
-      });
+      })
+      .then(() => setIsLoaded(false));
   };
 
   const switchDialog = () => {
@@ -83,6 +94,7 @@ const SignIn: FC<props> = ({ open, onClose, openSignUp }) => {
                                     Sign In
                                 </Button>
                             </Grid>
+                            {isLoaded && <CircularProgress />}
                         </Grid>
                     </form>
                 </DialogContent>

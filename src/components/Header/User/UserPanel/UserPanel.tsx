@@ -14,7 +14,7 @@ function UserPanel({ anchorEl, onClose }) {
     });
 
   return (
-        <Popper anchorEl={anchorEl} open={Boolean(anchorEl)}>
+        <Popper anchorEl={anchorEl} open={Boolean(anchorEl)} style={{ zIndex: 2 }}>
             <Button onClick={signOut} color="inherit" variant="contained">
                 Logout
             </Button>
