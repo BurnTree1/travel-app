@@ -8,6 +8,7 @@ import {
   FETCH_COUNTRIES_ERROR,
   FETCH_COUNTRY_STARTED,
   FETCH_COUNTRY_ERROR,
+  UPDATE_SIGHT_SCORE,
 } from '../actions/countries';
 
 const initialState: IReduxStateCountries = {
@@ -62,6 +63,10 @@ const handlers = {
     ...state,
     loading: false,
     countryError: error,
+  }),
+  [UPDATE_SIGHT_SCORE]: (state, { country }) => ({
+    ...state,
+    country,
   }),
 };
 

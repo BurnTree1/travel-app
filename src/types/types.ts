@@ -1,8 +1,9 @@
 export type sight = {
+  _id: string;
   description: string;
   imageUrl: string;
   name: string;
-  score: any[];
+  scores: any[];
 };
 
 export type countriesType = {
@@ -34,4 +35,11 @@ export interface IReduxStateLanguage {
 
 export interface IReduxState extends IReduxStateCountries, IReduxStateLanguage {
   error?: Error;
+}
+
+export interface IScoreData {
+  user: string;
+  name: string;
+  img: any;
+  score: number;
 }
