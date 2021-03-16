@@ -2,3 +2,10 @@
     width: 300px;
     padding: 15px;
 }
+
+
+@media (max-width: 1280px) {
+    .admin__nav .nav__btn {
+        font-size: 12px;
+    }
+}

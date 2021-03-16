@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import './AdminPanel.scss';
 import { useDispatch } from 'react-redux';
+import { useIntl } from 'react-intl';
 import { addCountry } from '../../../store/actions/admin';
 
 const validationSchema = yup.object({
@@ -48,6 +49,7 @@ const validationSchema = yup.object({
 });
 
 const AdminPanel = () => {
+  const intl = useIntl();
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -98,13 +100,13 @@ const AdminPanel = () => {
   });
 
   return (
-        <div>
+        <div className="country__add">
             <form onSubmit={formik.handleSubmit}>
                 <TextField
                   fullWidth
                   id="name"
                   name="name"
-                  label="Country name"
+                  label={intl.formatMessage({ id: 'header.search' })}
                   value={formik.values.name}
                   onChange={formik.handleChange}
                   error={formik.touched.name && Boolean(formik.errors.name)}

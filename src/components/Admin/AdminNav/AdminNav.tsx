@@ -8,7 +8,7 @@ const AdminNav = (props) => {
   };
   return (
         <div className="admin__nav">
-            <Button onClick={onCountryAdd} variant="contained" size="large" color="primary">
+            <Button className="nav__btn" onClick={onCountryAdd} variant="contained" size="large" color="primary">
                 Add country
             </Button>
         </div>
