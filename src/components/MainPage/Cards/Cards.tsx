@@ -15,6 +15,8 @@ export const Cards: FC<propsType> = (props) => {
   capital={card.capital}
   iso={card.ISO}
   imageUrl={card.imageUrl}
+  custom={card.custom}
+  id={card.id}
 />
   ));
   return (

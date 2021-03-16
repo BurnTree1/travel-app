@@ -43,6 +43,7 @@
     "@types/react-youtube": "^7.6.2",
     "awesome-typescript-loader": "^5.2.1",
     "axios": "^0.21.1",
+    "formik": "^2.2.6",
     "lodash": "^4.17.20",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -53,7 +54,8 @@
     "react-scripts": "4.0.2",
     "react-youtube": "^7.13.1",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@babel/core": "^7.12.17",

@@ -12,6 +12,7 @@ type mapStateToPropsType = {
   foundCountries: Array<countriesType>
   lang: string
   loading: boolean
+  deletedCountryId: number
 };
 type propsType = {
   countries: Array<countriesType>
@@ -20,13 +21,13 @@ type propsType = {
 type props = propsType & mapStateToPropsType;
 const MainPage: FC<props> = (props) => {
   const {
-    foundCountries, countries, lang, loading,
+    foundCountries, countries, lang, loading, deletedCountryId,
   } = props;
   const [showFoundCountries, setshowFoundCountries] = useState<boolean>(false);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setCountries(lang));
-  }, [lang]);
+  }, [lang, deletedCountryId]);
   const findCountries = (searchText: string): void => {
     dispatch(filterCountries(searchText));
     if (searchText) {
@@ -53,6 +54,7 @@ const mapStateToProps = (state) => ({
   foundCountries: state.countries.foundCountries,
   lang: state.lang.lang,
   loading: state.countries.countriesLoading,
+  deletedCountryId: state.admin.deletedCountryId,
 });
 
 export default connect<mapStateToPropsType>(mapStateToProps)(MainPage);
