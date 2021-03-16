@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { countriesType, IReduxStateCountries } from 'Types';
 import {
   FETCH_COUNTRIES,
   FILTER_COUNTRIES,
@@ -7,8 +8,8 @@ import {
   FETCH_COUNTRIES_ERROR,
   FETCH_COUNTRY_STARTED,
   FETCH_COUNTRY_ERROR,
-} from 'Actions';
-import { countriesType, IReduxStateCountries } from 'Types';
+  UPDATE_SIGHT_SCORE,
+} from '../actions/countries';
 
 const initialState: IReduxStateCountries = {
   countries: [] as Array<countriesType>,
@@ -62,6 +63,10 @@ const handlers = {
     ...state,
     loading: false,
     countryError: error,
+  }),
+  [UPDATE_SIGHT_SCORE]: (state, { country }) => ({
+    ...state,
+    country,
   }),
 };
 

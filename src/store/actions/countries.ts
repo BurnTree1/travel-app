@@ -1,4 +1,5 @@
-import { countriesType } from 'Types';
+/* eslint-disable no-underscore-dangle */
+import { countriesType, IScoreData, sight } from 'Types';
 import { countriesAPI } from '../../api/countriesAPI';
 
 export const FETCH_COUNTRIES = 'COUNTRIES/FETCH';
@@ -9,6 +10,8 @@ export const FETCH_COUNTRIES_STARTED = 'COUNTRIES/FETCH_COUNTRIES_STARTED';
 export const FETCH_COUNTRIES_ERROR = 'COUNTRIES/FETCH_COUNTRIES_ERROR';
 export const FETCH_COUNTRY_STARTED = 'COUNTRIES/FETCH_COUNTRY_STARTED';
 export const FETCH_COUNTRY_ERROR = 'COUNTRIES/FETCH_COUNTRY_ERROR';
+
+export const UPDATE_SIGHT_SCORE = 'UPDATE_SIGHT_SCORE';
 
 type fetchCountriesType = {
   type: typeof FETCH_COUNTRIES
@@ -91,4 +94,43 @@ export const setCountry = (iso: string, lang: string) => async (dispatch) => {
   } catch (e) {
     dispatch(errorFetchCountry(e));
   }
+};
+
+const updateScore = (currentSight: sight, user: any, score: number) => {
+  const scoreIndex = currentSight.scores.findIndex((item: IScoreData) => item.user === user._id);
+  let updatedScores: IScoreData[] = [...currentSight.scores];
+  if (scoreIndex > -1) {
+    updatedScores[scoreIndex] = { ...updatedScores[scoreIndex], score };
+  } else {
+    updatedScores = [...updatedScores,
+      {
+        user: user._id, name: 'name', img: user.img, score,
+      },
+    ];
+  }
+
+  return { ...currentSight, scores: updatedScores };
+};
+
+type UpdateScoreType = {
+  type: typeof UPDATE_SIGHT_SCORE
+  payload: { country: countriesType }
+};
+
+export const updateSightScore = (data: { country: countriesType, score: number, user: any, sightId: string }): UpdateScoreType => {
+  const {
+    country, sightId, user, score,
+  } = data;
+
+  const updatedSightsIndex = country.sights.findIndex((item: sight) => item._id === sightId);
+  const updatedSights = [...country.sights];
+
+  if (updatedSightsIndex > -1) {
+    updatedSights[updatedSightsIndex] = updateScore(updatedSights[updatedSightsIndex], user, score);
+  }
+
+  return {
+    type: UPDATE_SIGHT_SCORE,
+    payload: { country: { ...country, sights: updatedSights } },
+  };
 };

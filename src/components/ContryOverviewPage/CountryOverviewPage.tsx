@@ -27,7 +27,6 @@ type Params = {
 };
 
 const CountryOverviewPage: FC<mapStateToPropsType> = ({ lang, loading }) => {
-  console.log('rendered countryOverview ');
   const [widgetsStyle, setWidgetsStyle] = useState<string>('');
   const { pathname } = useLocation<Location>();
   useEffect(() => {
