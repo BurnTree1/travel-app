@@ -1,16 +1,19 @@
 import _ from 'lodash';
-import { CHANGE_LANGUAGE } from '../actions/language';
+import { INIT_USER, LOGOUT } from 'Actions';
 
 const initialState = {
-  lang: 'en',
+  isAuth: false,
 };
 
 type InitialState = typeof initialState;
 
 const handlers = {
-  [CHANGE_LANGUAGE]: (state: InitialState, { lang }) => ({
-    ...state,
-    lang,
+  [INIT_USER]: (state, { user }) => ({
+    ...user,
+    isAuth: true,
+  }),
+  [LOGOUT]: () => ({
+    ...initialState,
   }),
 };
 

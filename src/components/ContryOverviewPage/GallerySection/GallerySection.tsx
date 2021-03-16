@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ImageGallery from 'react-image-gallery';
 import { connect } from 'react-redux';
 import { sight, IReduxState, countriesType } from 'Types';
 import styles from './GallerySection.module.scss';
 import './gallerySection.css';
+import SightScore from './SightScore/SightScore';
 
 interface IImage {
   original: string;
@@ -12,6 +13,7 @@ interface IImage {
 }
 
 const GallerySection = (props: { country: countriesType }) => {
+  const [slideId, setId] = useState(0);
   const { country } = props;
   let images: IImage[] | null = null;
   if (country) {
@@ -28,12 +30,16 @@ const GallerySection = (props: { country: countriesType }) => {
       ? (
           <section className={styles.gallerySection}>
             <div className={styles.galleryWrapper}>
+              <div className={styles.scoreWrapper}>
+                <SightScore slideId={slideId} />
+              </div>
               {images && (
                 <ImageGallery
                   items={images}
                   autoPlay={false}
                   thumbnailPosition="left"
                   showPlayButton={false}
+                  onSlide={(id) => { setId(id); }}
                 />
               )}
             </div>

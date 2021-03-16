@@ -21,9 +21,10 @@
       "baseUrl": ".",
       "paths": {
           "Actions": ["src/store/actions/index"],
-          "Helpers": ["src/store/helpers/index"],
+          "Helpers": ["src/helpers/index"],
           "Assets": ["src/assets/index"],
-          "Types": ["src/types/index"]
+          "Types": ["src/types/index"],
+          "Api": ["src/api/index"]
       }
   },
   "include": [
