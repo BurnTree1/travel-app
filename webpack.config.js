@@ -39,6 +39,10 @@ module.exports = {
         use: 'awesome-typescript-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\bmapbox-gl-csp-worker.js\b/i,
+        use: { loader: 'worker-loader' },
+      },
     ],
   },
   plugins: [

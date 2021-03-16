@@ -11,7 +11,9 @@ export type countriesType = {
   name: string
   capital: string
   description: string
-  mapPoint: any
+  mapPoint: {
+    coordinates: [number, number]
+  }
   imageUrl: string
   videoUrl: string
   flagImageUrl: string
