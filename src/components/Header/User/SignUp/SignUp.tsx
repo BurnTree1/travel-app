@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import {
   Button,
+  CircularProgress,
   Dialog,
   DialogContent,
   DialogTitle,
@@ -25,6 +26,7 @@ const SignUp: FC<props> = ({ open, onClose, openSignIn }) => {
   const [image, setImage] = useState();
   const [password, setPassword] = useState('');
   const [isError, setIsError] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const dispatch = useDispatch();
 
   const clearAndClose = () => {
@@ -34,7 +36,16 @@ const SignUp: FC<props> = ({ open, onClose, openSignIn }) => {
     onClose();
   };
 
+  const validate = () => ((image)
+      && (login && login !== '')
+      && (password && password !== ''));
+
   const sendUserData = () => {
+    if (!validate()) {
+      setIsError(true);
+      return;
+    }
+    setIsLoaded(true);
     userApi.signUp(login, password, image)
       .then((data) => {
         dispatch(initUser(data));
@@ -42,7 +53,8 @@ const SignUp: FC<props> = ({ open, onClose, openSignIn }) => {
       })
       .catch(() => {
         setIsError(true);
-      });
+      })
+      .then(() => setIsLoaded(false));
   };
 
   const switchDialog = () => {
@@ -67,7 +79,7 @@ const SignUp: FC<props> = ({ open, onClose, openSignIn }) => {
                     >
                         <LoginWithAvatar login={login} setLogin={setLogin} setFile={setImage} />
                         <Password password={password} setPassword={setPassword} />
-                        <Typography>
+                        <Typography color="secondary">
                             {isError ? 'Please input correct data' : ''}
                         </Typography>
                         <Grid item>
@@ -75,6 +87,7 @@ const SignUp: FC<props> = ({ open, onClose, openSignIn }) => {
                                 Sign Up
                             </Button>
                         </Grid>
+                        {isLoaded && <CircularProgress />}
                     </Grid>
                 </form>
             </DialogContent>
