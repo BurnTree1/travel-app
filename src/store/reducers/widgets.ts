@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { FETCH_CURRENCY, FETCH_WEATHER } from 'Actions';
+import { FETCH_CURRENCY, FETCH_WEATHER } from '../actions/widgets';
 
 const initialState = {
   weather: {

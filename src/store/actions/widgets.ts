@@ -7,7 +7,7 @@ type fetchWeatherType = {
   type: typeof FETCH_WEATHER
   payload: { weather: string }
 };
-export const fetchWeather = (weather: string): fetchWeatherType => ({
+export const fetchWeather = (weather: any): fetchWeatherType => ({
   type: FETCH_WEATHER,
   payload: { weather },
 });

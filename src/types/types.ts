@@ -1,8 +1,9 @@
 export type sight = {
+  _id: string;
   description: string;
   imageUrl: string;
   name: string;
-  score: any[];
+  scores: any[];
 };
 
 export type countriesType = {
@@ -10,7 +11,9 @@ export type countriesType = {
   name: string
   capital: string
   description: string
-  mapPoint: any
+  mapPoint: {
+    coordinates: [number, number]
+  }
   imageUrl: string
   videoUrl: string
   flagImageUrl: string
@@ -57,4 +60,11 @@ export interface IReduxStateAdmin {
 
 export interface IReduxState extends IReduxStateCountries, IReduxStateLanguage {
   error?: Error;
+}
+
+export interface IScoreData {
+  user: string;
+  name: string;
+  img: any;
+  score: number;
 }

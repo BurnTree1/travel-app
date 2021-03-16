@@ -1,14 +1,13 @@
 import React from 'react';
 import { ExpandMore, ExpandLess } from '@material-ui/icons';
-import { connect } from 'react-redux';
-import { IReduxState, countriesType } from 'Types';
 import {
-  Fab, Menu, MenuProps, withStyles,
+  Fab, Menu, MenuProps, withStyles, MenuItem,
 } from '@material-ui/core';
+import { IScoreData } from 'Types';
 import UserCard from './UserCard/UserCard';
+import styles from './SightScoresList.module.scss';
 
 const StyledMenu = withStyles({
-  paper: {},
 })((props: MenuProps) => (
   <Menu
     elevation={0}
@@ -26,9 +25,8 @@ const StyledMenu = withStyles({
   />
 ));
 
-const SightScoresList = (props: { country: countriesType }) => {
-  const { country } = props;
-  console.log(country);
+const SightScoresList = (props: { scoreList: IScoreData[] }) => {
+  const { scoreList } = props;
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -51,19 +49,19 @@ const SightScoresList = (props: { country: countriesType }) => {
       onClose={handleClose}
       className="custom-material-list"
     >
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
+      {
+        scoreList.length > 0
+          // eslint-disable-next-line react/no-array-index-key
+          ? scoreList.map((item, index) => (<UserCard key={index} scoreData={item} />))
+          : (
+              <MenuItem className="custom-material-li">
+                  <p className={styles.noData}>No Scores</p>
+              </MenuItem>
+          )
+      }
     </StyledMenu>
     </>
   );
 };
 
-const mapStateToProps = (state: { countries: IReduxState }) => ({
-  country: state.countries.country,
-});
-
-export default connect(mapStateToProps)(SightScoresList);
+export default SightScoresList;
