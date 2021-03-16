@@ -2,9 +2,10 @@ import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './Card.module.css';
 import { deleteCountry } from '../../../../store/actions/admin';
+import { AppRootReducer } from '../../../../store';
 
 type propsType = {
   name: string
@@ -18,6 +19,7 @@ export const Card: FC<propsType> = ({
   id, name, capital, iso, imageUrl, custom,
 }) => {
   const dispatch = useDispatch();
+  const isAuth = useSelector((state: AppRootReducer) => state.user.isAuth);
   const onCountryDelete = () => {
     dispatch(deleteCountry(id));
   };
@@ -41,7 +43,7 @@ export const Card: FC<propsType> = ({
                     </div>
                 </Link>
                 {custom
-                && (
+                && isAuth && (
 <IconButton
   onClick={onCountryDelete}
   aria-label="delete"
