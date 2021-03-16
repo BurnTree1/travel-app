@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const USER_API = '/api/user';
+const USER_API = 'https://peaceful-earth-11439.herokuapp.com/user';
 
 export const userApi = {
   get() {
