@@ -1,0 +1,10 @@
+.admin__wrap {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin {
+    flex: 1 0 auto;
+    display: flex;
+}

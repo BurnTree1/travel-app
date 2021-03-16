@@ -1,0 +1,11 @@
+.popper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 9999;
+}
+
+.admin__button {
+    width: 88px;
+}

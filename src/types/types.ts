@@ -21,6 +21,26 @@ export type countriesType = {
   ISO: string
   sights: sight[]
   timeZone: string
+  custom?: boolean | undefined
+};
+
+type customLocalisationsType = {
+  lang: string
+  name: string
+  capital: string
+  description: string
+};
+
+export type customCountryType = {
+  mapPoint?: any
+  imageUrl: string
+  videoUrl: string
+  flagImageUrl: string
+  currency: string
+  ISO: string
+  localizations: Array<customLocalisationsType>
+  timeZone: string
+  custom: boolean
 };
 
 export interface IReduxStateCountries {
@@ -33,6 +53,9 @@ export interface IReduxStateCountries {
 
 export interface IReduxStateLanguage {
   lang: string;
+}
+export interface IReduxStateAdmin {
+  deletedCountryId: number;
 }
 
 export interface IReduxState extends IReduxStateCountries, IReduxStateLanguage {
