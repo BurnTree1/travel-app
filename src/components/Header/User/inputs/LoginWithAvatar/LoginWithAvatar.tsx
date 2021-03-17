@@ -35,7 +35,7 @@ function LoginWithAvatar({ login, setLogin, setFile }) {
                       type="file"
                       onChange={handleUploadClick}
                     />
-                    <Avatar src={image} />
+                    <Avatar src={image} style={{ cursor: 'pointer' }} />
                 </label>
             </div>
         </Grid>
