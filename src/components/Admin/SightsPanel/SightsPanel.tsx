@@ -30,7 +30,7 @@ const SightsPanel: FC = () => {
                       value={country}
                       onChange={handleChange}
                     >
-                        {countriesArr.map((c) => <MenuItem value={c.id}>{c.name}</MenuItem>)}
+                        {countriesArr.map((c) => <MenuItem key={c.id} value={c.id}>{c.name}</MenuItem>)}
                     </Select>
                 </FormControl>
             </div>
