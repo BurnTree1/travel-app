@@ -21,7 +21,7 @@ const DescriptionSection = () => {
                     {countryData.description}
                 </p>
                 <div className={styles.descriptionImage}>
-                    <img src="http://surl.li/nlqk" alt="description img" />
+                    <img src="https://i.pinimg.com/564x/d5/ed/e5/d5ede5cb7f02495fd2d4299a42aaca01.jpg" alt="description img" />
                 </div>
             </div>
         </section>

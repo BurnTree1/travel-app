@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Avatar } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUser } from 'Actions';
+import { AUTH_TOKEN_NAME } from 'Helpers';
 import styles from '../Header.module.css';
 import SignIn from './SignIn/SignIn';
 import SignUp from './SignUp/SignUp';
@@ -18,7 +19,7 @@ function User() {
   const { isAuth, img } = useSelector<AppRootReducer>((state) => state.user);
 
   useEffect(() => {
-    dispatch(fetchUser());
+    if (localStorage.getItem(AUTH_TOKEN_NAME)) dispatch(fetchUser());
   }, []);
 
   const avaClick = (e) => ((isAuth) ? setAnchorEl(anchorEl ? null : e.currentTarget)
