@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import './AdminPanel.scss';
+import './CountryPanel.scss';
 import { useDispatch } from 'react-redux';
 import { addCountry } from '../../../store/actions/admin';
 
@@ -79,7 +79,7 @@ const validationSchema = yup.object({
     .required('Latitude  is required'),
 });
 
-const AdminPanel = () => {
+const CountryPanel = () => {
   // const intl = useIntl();
   const dispatch = useDispatch();
   const formik = useFormik({
@@ -134,7 +134,6 @@ const AdminPanel = () => {
         custom: true,
         mapPoint: { coordinates: [values.longitude, values.latitude] },
       };
-      console.log(submitedValues);
       dispatch(addCountry(submitedValues));
       resetForm();
     },
@@ -329,4 +328,4 @@ const AdminPanel = () => {
   );
 };
 
-export default AdminPanel;
+export default CountryPanel;
