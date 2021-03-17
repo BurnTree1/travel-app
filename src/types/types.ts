@@ -31,8 +31,13 @@ type customLocalisationsType = {
   description: string
 };
 
+type customSightLocalisationsType = {
+  lang: string
+  name: string
+  description: string
+};
+
 export type customCountryType = {
-  mapPoint?: any
   imageUrl: string
   videoUrl: string
   flagImageUrl: string
@@ -41,6 +46,13 @@ export type customCountryType = {
   localizations: Array<customLocalisationsType>
   timeZone: string
   custom: boolean
+  mapPoint: { coordinates: Array<string> }
+};
+
+export type customSightType = {
+  imageUrl: string
+  countryId: string
+  localizations: Array<customSightLocalisationsType>
 };
 
 export interface IReduxStateCountries {
@@ -54,6 +66,7 @@ export interface IReduxStateCountries {
 export interface IReduxStateLanguage {
   lang: string;
 }
+
 export interface IReduxStateAdmin {
   deletedCountryId: number;
 }

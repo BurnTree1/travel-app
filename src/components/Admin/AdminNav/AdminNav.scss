@@ -2,3 +2,15 @@
     width: 300px;
     padding: 15px;
 }
+
+.admin__nav .nav__btn {
+    margin-bottom: 15px;
+    margin-left: 5px;
+}
+
+
+@media (max-width: 1280px) {
+    .admin__nav .nav__btn {
+        font-size: 12px;
+    }
+}

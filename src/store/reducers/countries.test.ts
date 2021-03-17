@@ -13,7 +13,9 @@ const state = {
     name: 'string',
     capital: 'London',
     description: 'string',
-    mapPoint: 0,
+    mapPoint: {
+        coordinates: [1, 1]
+    },
     imageUrl: 'string',
     videoUrl: 'string',
     flagImageUrl: 'string',
@@ -35,7 +37,9 @@ test('receive countries', () => {
       name: 'string',
       capital: 'string',
       description: 'string',
-      mapPoint: 0,
+        mapPoint: {
+            coordinates: [1, 1]
+        },
       imageUrl: 'string',
       videoUrl: 'string',
       flagImageUrl: 'string',
@@ -55,7 +59,9 @@ test('set country', () => {
       name: 'string',
       capital: 'string',
       description: 'string',
-      mapPoint: 0,
+        mapPoint: {
+            coordinates: [1, 1]
+        },
       imageUrl: 'string',
       videoUrl: 'string',
       flagImageUrl: 'string',

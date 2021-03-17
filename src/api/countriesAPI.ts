@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { countriesType } from 'Types';
 
-const COUNTRIES_API = '/api/countries';
+const COUNTRIES_API = 'https://peaceful-earth-11439.herokuapp.com/countries';
 
 export const countriesAPI = {
   getCountries(lang: string) {
