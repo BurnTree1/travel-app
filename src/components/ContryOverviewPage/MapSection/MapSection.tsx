@@ -79,8 +79,10 @@ const MapSection = () => {
   }, []);
 
   return (
-      <section>
-          <div className={styles.mapContainer} ref={mapContainerRef} />
+      <section className={styles.mapSection}>
+          <div className={styles.mapWrapper}>
+            <div className={styles.mapContainer} ref={mapContainerRef} />
+          </div>
       </section>
   );
 };
