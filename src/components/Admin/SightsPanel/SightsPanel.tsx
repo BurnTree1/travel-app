@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCountries } from 'Actions';
 import { AppRootReducer } from '../../../store';
 import SightsForm from './SightsForm/SightsForm';
+import './SightsPanel.scss';
 
 const SightsPanel: FC = () => {
   const countriesArr = useSelector((state: AppRootReducer) => state.countries.countries
