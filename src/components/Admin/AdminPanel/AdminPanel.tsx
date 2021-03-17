@@ -134,6 +134,7 @@ const AdminPanel = () => {
         custom: true,
         mapPoint: { coordinates: [values.longitude, values.latitude] },
       };
+      console.log(submitedValues);
       dispatch(addCountry(submitedValues));
       resetForm();
     },
@@ -306,10 +307,10 @@ const AdminPanel = () => {
                 />
                 <TextField
                   fullWidth
-                  id="latitude "
+                  id="latitude"
                   type="number"
-                  name="latitude "
-                  label="Latitude  of capital(for map)"
+                  name="latitude"
+                  label="Latitude of capital(for map)"
                   value={formik.values.latitude}
                   onChange={formik.handleChange}
                   error={formik.touched.latitude && Boolean(formik.errors.latitude)}

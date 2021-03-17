@@ -40,7 +40,7 @@ export type customCountryType = {
   localizations: Array<customLocalisationsType>
   timeZone: string
   custom: boolean
-  mapPoint: { coordinates: Array<number> }
+  mapPoint: { coordinates: Array<string> }
 };
 
 export interface IReduxStateCountries {
