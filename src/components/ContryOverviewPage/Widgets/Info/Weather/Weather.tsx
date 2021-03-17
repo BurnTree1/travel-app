@@ -8,12 +8,13 @@ export const Weather = () => {
   const temp = useSelector((state: AppRootReducer) => state.widgets.weather.temp);
   const desc = useSelector((state: AppRootReducer) => state.widgets.weather.desc);
   const icon = useSelector((state: AppRootReducer) => state.widgets.weather.icon);
-  const city = useSelector((state: AppRootReducer) => state.countries.country.capital);
+  const lat = useSelector((state: AppRootReducer) => state.countries.country.mapPoint.coordinates[1]);
+  const lon = useSelector((state: AppRootReducer) => state.countries.country.mapPoint.coordinates[0]);
   const lang = useSelector((state: AppRootReducer) => state.lang.lang);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(setWeather(city, lang));
-  }, [city, lang]);
+    dispatch(setWeather(lat, lon, lang));
+  }, [lat, lang]);
   return (
         <div className={styles.weather}>
             <img
