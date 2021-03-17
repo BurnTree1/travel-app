@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { customCountryType, customSightType } from 'Types';
+import { AUTH_TOKEN_NAME } from 'Helpers';
 
 const COUNTRY_ADD = 'https://peaceful-earth-11439.herokuapp.com/countries/add';
 const SIGHTS_ADD = 'https://peaceful-earth-11439.herokuapp.com/sights/add';
@@ -28,6 +29,7 @@ export const adminAPI = {
     return axios({
       url: `${COUNTRY_DELETE}/${id}`,
       method: 'DELETE',
+      headers: { Authorization: localStorage.getItem(AUTH_TOKEN_NAME) },
       withCredentials: true,
     })
       .then((response) => response.data);
