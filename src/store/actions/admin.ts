@@ -23,5 +23,5 @@ export const addSight = (sight: customSightType) => () => {
 
 export const deleteCountry = (id: number) => (dispatch) => {
   adminAPI.deleteNewCountry(id)
-    .then(dispatch(countryDeleted(id)));
+    .then(() => dispatch(countryDeleted(id)));
 };
