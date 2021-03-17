@@ -3,6 +3,8 @@ import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { Card } from './Card';
+import store from "../../../../store";
+import {Provider} from "react-redux";
 
 let container = null;
 beforeEach(() => {
@@ -18,7 +20,7 @@ afterEach(() => {
 
 it('renders card with name', () => {
   act(() => {
-    render(<BrowserRouter><Card name="name" /></BrowserRouter>, container);
+      render(<Provider store={store}><BrowserRouter><Card name="name" /></BrowserRouter></Provider>, container);
   });
   expect(container.textContent).toBe('name');
 });

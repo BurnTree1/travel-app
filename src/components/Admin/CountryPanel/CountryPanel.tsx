@@ -9,78 +9,77 @@ import { addCountry } from '../../../store/actions/admin';
 
 const validationSchema = yup.object({
   name: yup
-    .string('Enter country name')
+    .string()
     .min(3, 'Country should be of minimum 3 characters length')
     .required('Country name is required'),
   ru_name: yup
-    .string('Enter country name')
+    .string()
     .min(3, 'Country should be of minimum 3 characters length')
     .required('Country name is required'),
   ge_name: yup
-    .string('Enter country name')
+    .string()
     .min(3, 'Country should be of minimum 3 characters length')
     .required('Country name is required'),
   capital: yup
-    .string('Enter capital')
+    .string()
     .min(3, 'Capital should be of minimum 3 characters length')
     .required('Capital is required'),
   ru_capital: yup
-    .string('Enter capital')
+    .string()
     .min(3, 'Capital should be of minimum 3 characters length')
     .required('Capital is required'),
   ge_capital: yup
-    .string('Enter capital')
+    .string()
     .min(3, 'Capital should be of minimum 3 characters length')
     .required('Capital is required'),
   description: yup
-    .string('Enter description')
+    .string()
     .min(10, 'Description should be of minimum 10 characters length')
     .required('Description is required'),
   ru_description: yup
-    .string('Enter description')
+    .string()
     .min(10, 'Description should be of minimum 10 characters length')
     .required('Description is required'),
   ge_description: yup
-    .string('Enter description')
+    .string()
     .min(10, 'Description should be of minimum 10 characters length')
     .required('Description is required'),
   imageUrl: yup
-    .string('Enter image url')
+    .string()
     .min(5, 'Url should be of minimum 5 characters length')
     .required('Url is required'),
   videoUrl: yup
-    .string('Enter video url')
+    .string()
     .min(5, 'Url should be of minimum 5 characters length')
     .required('Url is required'),
   flagImageUrl: yup
-    .string('Enter flag url')
+    .string()
     .min(5, 'Url should be of minimum 5 characters length')
     .required('Url is required'),
   currency: yup
-    .string('Enter currency ISO')
+    .string()
     .min(2, 'Currency should be of minimum 2 characters length')
     .required('Currency is required'),
   ISO: yup
-    .string('Enter ISO')
+    .string()
     .min(2, 'ISO should be of minimum 2 characters length')
     .required('ISO is required'),
   timeZone: yup
-    .string('Enter time zone')
+    .string()
     .min(1, 'Time zone should be of minimum 1 characters length')
     .max(3, 'Time zone should be of maximum 3 characters length')
     .required('Time zone is required'),
   longitude: yup
-    .string('Enter longitude')
+    .string()
     .min(1, 'Longitude should be of minimum 1 characters length')
     .required('Longitude is required'),
   latitude: yup
-    .string('Enter latitude')
+    .string()
     .min(1, 'Latitude  should be of minimum 1 characters length')
     .required('Latitude  is required'),
 });
 
 const CountryPanel = () => {
-  // const intl = useIntl();
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {

@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { AUTH_TOKEN_NAME } from 'Helpers';
+import { AUTH_TOKEN_NAME } from '../helpers/constants';
 
-const USER_API = '/api/user';
+const USER_API = 'https://peaceful-earth-11439.herokuapp.com/user';
 
 export const userApi = {
   get() {

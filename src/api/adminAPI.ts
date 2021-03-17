@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { customCountryType, customSightType } from 'Types';
 
-const COUNTRY_ADD = '/api/countries/add';
-const SIGHTS_ADD = '/api/sights/add';
-const COUNTRY_DELETE = '/api/countries';
+const COUNTRY_ADD = 'https://peaceful-earth-11439.herokuapp.com/countries/add';
+const SIGHTS_ADD = 'https://peaceful-earth-11439.herokuapp.com/sights/add';
+const COUNTRY_DELETE = 'https://peaceful-earth-11439.herokuapp.com/countries';
 
 export const adminAPI = {
   addNewCountry(country: customCountryType) {

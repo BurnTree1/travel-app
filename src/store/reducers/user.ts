@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { INIT_USER, LOGOUT } from 'Actions';
+import { INIT_USER, LOGOUT } from '../actions/user';
 
 const initialState = {
   isAuth: false,

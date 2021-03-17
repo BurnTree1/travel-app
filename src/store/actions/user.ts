@@ -1,4 +1,4 @@
-import { userApi } from 'Api';
+import { userApi } from '../../api/userApi';
 
 export const INIT_USER = 'USER/INIT';
 export const LOGOUT = 'USER/LOGOUT';

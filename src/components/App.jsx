@@ -3,7 +3,7 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import MainPage from './MainPage/MainPage.tsx';
 import CountryOverviewPage from './ContryOverviewPage/CountryOverviewPage.tsx';
-import Admin from "./Admin/Admin";
+import Admin from './Admin/Admin';
 
 const App = () => (
     <div className="app">

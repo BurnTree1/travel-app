@@ -9,31 +9,31 @@ import './SightsForm.scss';
 
 const validationSchema = yup.object({
   name: yup
-    .string('Enter sight name')
+    .string()
     .min(3, 'sight should be of minimum 3 characters length')
     .required('sight name is required'),
   ru_name: yup
-    .string('Enter sight name')
+    .string()
     .min(3, 'sight should be of minimum 3 characters length')
     .required('sight name is required'),
   ge_name: yup
-    .string('Enter sight name')
+    .string()
     .min(3, 'sight should be of minimum 3 characters length')
     .required('sight name is required'),
   description: yup
-    .string('Enter description')
+    .string()
     .min(10, 'Description should be of minimum 10 characters length')
     .required('Description is required'),
   ru_description: yup
-    .string('Enter description')
+    .string()
     .min(10, 'Description should be of minimum 10 characters length')
     .required('Description is required'),
   ge_description: yup
-    .string('Enter description')
+    .string()
     .min(10, 'Description should be of minimum 10 characters length')
     .required('Description is required'),
   imageUrl: yup
-    .string('Enter image url')
+    .string()
     .min(5, 'Url should be of minimum 5 characters length')
     .required('Url is required'),
 });
@@ -41,7 +41,7 @@ const validationSchema = yup.object({
 type propsType = {
   id: string
 };
-const SightsForm: FC<propsType> = ({ id }) => {
+export const SightsForm: FC<propsType> = ({ id }) => {
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -166,5 +166,3 @@ const SightsForm: FC<propsType> = ({ id }) => {
     </div>
   );
 };
-
-export default SightsForm;
