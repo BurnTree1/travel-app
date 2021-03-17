@@ -1,0 +1,21 @@
+.cards {
+    max-width: 1272px;
+    margin: 0 auto;
+    padding: 69px 0 121px 0;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 24px;
+    row-gap: 52px;
+}
+
+@media (max-width: 1385px) {
+    .cards {
+        justify-content: space-evenly;
+    }
+}
+
+@media (max-width: 770px) {
+    .cards {
+        padding-left: 15px;
+    }
+}

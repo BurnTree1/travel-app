@@ -1,0 +1,37 @@
+.userCard {
+  height: 82px;
+  width: 300px;
+  padding: 12px 16px 30px 16px;
+  display: flex;
+  align-items: center;
+}
+
+.userCard__imageWrapper {
+  margin-right: 16px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.userCard__image {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.userCard__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.userCard__name {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: normal;
+}
