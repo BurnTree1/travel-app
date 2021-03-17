@@ -5,6 +5,7 @@ import { FormControl } from '@material-ui/core';
 import './Currency.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCountryCurrency } from 'Actions';
+import { useIntl } from 'react-intl';
 import { AppRootReducer } from '../../../../../store';
 import styles from './Currency.module.scss';
 
@@ -15,6 +16,7 @@ export const Currency = () => {
   const currencyEur = useSelector((state: AppRootReducer) => state.widgets.currencyExchange.eur);
   const currencyRub = useSelector((state: AppRootReducer) => state.widgets.currencyExchange.rub);
   const countryMoney = useSelector((state: AppRootReducer) => state.countries.country.currency);
+  const intl = useIntl();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setCountryCurrency(countryMoney));
@@ -40,9 +42,9 @@ export const Currency = () => {
                       value={currencySelected}
                       onChange={handleChange}
                     >
-                        <MenuItem value="usd">USD</MenuItem>
-                        <MenuItem value="rub">RUB</MenuItem>
-                        <MenuItem value="eur">EUR</MenuItem>
+                        <MenuItem value="usd">{intl.formatMessage({ id: 'currency.usd' })}</MenuItem>
+                        <MenuItem value="rub">{intl.formatMessage({ id: 'currency.rub' })}</MenuItem>
+                        <MenuItem value="eur">{intl.formatMessage({ id: 'currency.eur' })}</MenuItem>
                     </Select>
                 </FormControl>
             </div>

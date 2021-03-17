@@ -1,5 +1,8 @@
 {
   "header.search" : "De Search",
+    "currency.usd" : "Dollar",
+    "currency.rub" : "Rubel",
+    "currency.eur" : "Euro",
   "language.lang": "Language",
   "language.en": "Eng",
   "language.ru": "Ru",
