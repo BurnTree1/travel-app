@@ -2,18 +2,18 @@ import React from 'react';
 import { Popper, Button, ButtonGroup } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { logout } from 'Actions';
-import { userApi } from 'Api';
 import { Link } from 'react-router-dom';
 import './UserPanel.scss';
+import { AUTH_TOKEN_NAME } from 'Helpers';
 
 function UserPanel({ anchorEl, onClose }) {
   const dispatch = useDispatch();
 
-  const signOut = () => userApi.logout()
-    .then(() => {
-      dispatch(logout());
-      onClose();
-    });
+  const signOut = () => {
+    localStorage.removeItem(AUTH_TOKEN_NAME);
+    dispatch(logout());
+    onClose();
+  };
 
   return (
         <Popper className="popper" anchorEl={anchorEl} open={Boolean(anchorEl)}>

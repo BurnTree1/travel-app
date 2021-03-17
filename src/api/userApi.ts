@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { AUTH_TOKEN_NAME } from 'Helpers';
 
 const USER_API = '/api/user';
 
@@ -7,21 +8,16 @@ export const userApi = {
     return axios({
       url: `${USER_API}`,
       method: 'GET',
+      headers: { Authorization: localStorage.getItem(AUTH_TOKEN_NAME) },
       withCredentials: true,
     })
       .then((response) => response.data);
-  },
-  logout() {
-    return axios({
-      url: `${USER_API}/logout`,
-      method: 'GET',
-      withCredentials: true,
-    });
   },
   signIn(login: string, password: string) {
     return axios({
       url: `${USER_API}/signIn`,
       method: 'POST',
+      headers: { Authorization: localStorage.getItem(AUTH_TOKEN_NAME) },
       withCredentials: true,
       data: { login, password },
     });
@@ -51,6 +47,7 @@ export const userApi = {
       data: JSON.stringify(body),
       headers: {
         'Content-Type': 'application/json',
+        Authorization: localStorage.getItem(AUTH_TOKEN_NAME),
       },
     })
       .then((response) => response.data);

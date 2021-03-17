@@ -11,6 +11,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { initUser } from 'Actions';
 import { userApi } from 'Api';
+import { AUTH_TOKEN_NAME } from 'Helpers';
 import styles from '../UserDialog.module.css';
 
 import LoginInput from '../inputs/Login/Login';
@@ -47,6 +48,7 @@ const SignIn: FC<props> = ({ open, onClose, openSignUp }) => {
     setIsLoaded(true);
     userApi.signIn(login, password)
       .then(({ data }) => {
+        localStorage.setItem(AUTH_TOKEN_NAME, data.token);
         dispatch(initUser(data));
         clearAndClose();
       })
