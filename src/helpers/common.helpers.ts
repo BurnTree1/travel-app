@@ -7,5 +7,6 @@ export const arrayBufferToBase64 = (
     const result = `data:image/jpeg;base64,${base64String}`;
     return result;
   }
-  return undefined;
+
+  return img && typeof img === 'string' ? img : undefined;
 };

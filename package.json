@@ -41,6 +41,7 @@
     "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.7",
     "@types/react-youtube": "^7.6.2",
+    "@types/yup": "^0.29.11",
     "awesome-typescript-loader": "^5.2.1",
     "axios": "^0.21.1",
     "city-timezones": "^1.2.0",

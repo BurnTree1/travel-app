@@ -104,7 +104,7 @@ const updateScore = (currentSight: sight, user: any, score: number) => {
   } else {
     updatedScores = [...updatedScores,
       {
-        user: user._id, name: 'name', img: user.img, score,
+        user: user._id, name: user.name, img: user.img, score,
       },
     ];
   }
